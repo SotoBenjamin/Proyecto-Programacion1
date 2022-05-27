@@ -11,10 +11,12 @@ while True:
     print("3. Lista de socios")
     print("4. Salir\n")
     while True:
-        opcion = int(input("Ingrese una opcion: "))
-        if 1 <= opcion <= 4:
-            break
-    if opcion == 1:
+        opcion = input("Ingrese una opcion: ")
+        if opcion.isdigit():
+          if 1 <= int(opcion) <= 4:
+               break
+
+    if int(opcion) == 1:
         print("Datos personales\n")
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
@@ -30,11 +32,12 @@ while True:
         print("3. Dogcoin")
         print("4. Binance")
         while True:
-            opcion_cripto = int(input("Selecciona una opcion: "))
-            if 1 <= opcion_cripto <= 4:
+            opcion_cripto = input("Selecciona una opcion: ")
+            if opcion_cripto.isdigit():
+              if 1 <= int(opcion_cripto) <= 4:
                 break
 
-        if opcion_cripto==1:
+        if int(opcion_cripto)==1:
            print()
            monto_inversion = int(input("Igrese el monto en soles a invertir: "))
            montos_de_criptomoneda[0]+=monto_inversion
@@ -43,7 +46,7 @@ while True:
            lista_socios[2].append("Bitcoin")
            lista_socios[3].append(str(monto_inversion))
            t+=1
-        if opcion_cripto==2:
+        if int(opcion_cripto)==2:
            print()
            monto_inversion = int(input("Igrese el monto en soles a invertir: "))
            montos_de_criptomoneda[1]+=monto_inversion
@@ -52,7 +55,7 @@ while True:
            lista_socios[2].append("Etherium")
            lista_socios[3].append(str(monto_inversion))
            t+=1
-        if opcion_cripto == 3:
+        if int(opcion_cripto) == 3:
             print()
             monto_inversion = int(input("Igrese el monto en soles a invertir: "))
             montos_de_criptomoneda[2]+=monto_inversion
@@ -61,7 +64,7 @@ while True:
             lista_socios[2].append("Dogcoin")
             lista_socios[3].append(str(monto_inversion))
             t+=1
-        if opcion_cripto == 4:
+        if int(opcion_cripto) == 4:
             print()
             monto_inversion = int(input("Igrese el monto en soles a invertir: "))
             montos_de_criptomoneda[3]+=monto_inversion
@@ -74,11 +77,11 @@ while True:
         print('{:^100}'.format("Fin de registro"))
         print(100 * "-")
         while True:
-            opcion_volver_menu = int(input("Ingrese 0 para regresar al menu principal: "))
-            if opcion_volver_menu == 0:
+            opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
+            if int(opcion_volver_menu) == 0:
                 print()
                 break
-    if opcion==2:
+    if int(opcion)==2:
         print(100*"-")
         print('{:^100}'.format("Lista de activos digitales"))
         print(100 * "-")
@@ -88,11 +91,12 @@ while True:
         print("El fundo mutuo en Binance es:",montos_de_criptomoneda[3])
         print(100*"-")
         while True:
-            opcion_volver_menu = int(input("Ingrese 0 para regresar al menu principal: "))
-            if opcion_volver_menu == 0:
-                print()
-                break
-    if opcion==3:
+            opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
+            if opcion_volver_menu.isdigit():
+                if int(opcion_volver_menu) == 0:
+                    print()
+                    break
+    if int(opcion)==3:
         print(100 * "-")
         print('{:^100}'.format("Lista de socios"))
         print(100 * "-")
@@ -103,12 +107,13 @@ while True:
             print()
         print(100 * "-")
         while True:
-            opcion_volver_menu = int(input("Ingrese 0 para regresar al menu principal: "))
-            if opcion_volver_menu == 0:
-                print()
-                break
+            opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
+            if opcion_volver_menu.isdigit():
+               if int(opcion_volver_menu) == 0:
+                  print()
+                  break
         print()
-    if opcion==4:
+    if int(opcion)==4:
         print(100 * "-")
         print('{:^100}'.format("GRACIAS POR INVERTIR, VUELVA PRONTO"))
         print(100 * "-")
