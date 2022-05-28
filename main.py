@@ -1,5 +1,8 @@
 # Lugar para poner los import
 from funciones import *
+import jeff_funciones.main_funciones as jeff
+
+print(jeff.suma(4,7))
 
 #Variables generales
 opcion_volver_menu=0
