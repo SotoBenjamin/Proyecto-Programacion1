@@ -1,4 +1,4 @@
-from funciones import transponer as trans
+from funciones import *
 opcion_volver_menu=0
 montos_de_criptomoneda=[0,0,0,0]
 monto_inversion=0
@@ -16,10 +16,9 @@ while True:
           if 1 <= int(opcion) <= 4:
                break
     if int(opcion) == 1:
-        print(100*"-")
+        print(100*"-",end="\n")
         print("{:^100}".format("Registro de nuevo socio"))
-        print(100 * "-")
-        print()
+        print(100 * "-","\n")
         print("Datos personales\n")
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
@@ -103,12 +102,16 @@ while True:
         print(100 * "-")
         print('{:^100}'.format("Lista de socios"))
         print(100 * "-")
-        lista_transpuesta_socios=trans(lista_socios)[:]
+        #transpuesta
+        lista_transpuesta_socios=transponer(lista_socios)[:]
+        #IMPRESION DE MATRIZ
         for i in range(len(lista_transpuesta_socios)):
             for j in range(len(lista_transpuesta_socios[0])):
                 print('{:<15}'.format('{:>5}'.format(lista_transpuesta_socios[i][j])), end=" ")
             print()
+        #IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
         print(100 * "-")
+        #VALIDACION DE DATOS
         while True:
             opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
             if opcion_volver_menu.isdigit():
@@ -116,6 +119,7 @@ while True:
                   print()
                   break
         print()
+        #VALIDACION DE DATOS
     if int(opcion)==4:
         print(100 * "-")
         print('{:^100}'.format("GRACIAS POR INVERTIR, VUELVA PRONTO"))
