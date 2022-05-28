@@ -10,6 +10,7 @@ lista_socios=[["Nombre"],["Codigo"],["Moneda"],["Monto"]]
 
 #Inicio del código while
 while True:
+    #Menú
     print("Menu de opciones\n")
     print("1. Registro de nuevo socio")
     print("2. Lista de activos digitales")
@@ -22,6 +23,7 @@ while True:
           if 1 <= int(opcion) <= 4:
                break
 
+    #Opción 1
     if int(opcion) == 1:
         print(100*"-",end="\n")
         print("{:^100}".format("Registro de nuevo socio"))
@@ -96,6 +98,7 @@ while True:
                if int(opcion_volver_menu) == 0:
                   break
 
+    #Opcion 2
     if int(opcion)==2:
         print(100*"-")
         print('{:^100}'.format("Lista de activos digitales"))
@@ -113,13 +116,14 @@ while True:
                     print()
                     break
 
+    #Opción 3
     if int(opcion)==3:
         print(100 * "-")
         print('{:^100}'.format("Lista de socios"))
         print(100 * "-")
         #transpuesta
         lista_transpuesta_socios=transponer(lista_socios)[:]
-        
+
         #IMPRESION DE MATRIZ
         for i in range(len(lista_transpuesta_socios)):
             for j in range(len(lista_transpuesta_socios[0])):
@@ -138,8 +142,7 @@ while True:
                   break
         print()
 
-        #VALIDACION DE DATOS
-
+    #Opción 4
     if int(opcion)==4:
         print(100 * "-")
         print('{:^100}'.format("GRACIAS POR INVERTIR, VUELVA PRONTO"))
