@@ -1,15 +1,21 @@
+# Espacio para import
 from funciones import transponer as trans
+
+# Variables
 opcion_volver_menu=0
 montos_de_criptomoneda=[0,0,0,0]
 monto_inversion=0
 t=1
 lista_socios=[["Nombre"],["Codigo"],["Moneda"],["Monto"]]
+
+#Inicio el código
 while True:
     print("Menu de opciones\n")
     print("1. Registro de nuevo socio")
     print("2. Lista de activos digitales")
     print("3. Lista de socios")
     print("4. Salir\n")
+
     while True:
         opcion = input("Ingrese una opcion: ")
         if opcion.isdigit():
@@ -20,6 +26,7 @@ while True:
         print(100*"-")
         print("{:^100}".format("Registro de nuevo socio"))
         print(100 * "-")
+
         print()
         print("Datos personales\n")
         nombre = input("Ingrese el nombre del socio: ")
@@ -35,6 +42,7 @@ while True:
         print("2. Etherium")
         print("3. Dogcoin")
         print("4. Binance")
+
         while True:
             opcion_cripto = input("Selecciona una opcion: ")
             if opcion_cripto.isdigit():
@@ -80,11 +88,13 @@ while True:
         print(100 * "-")
         print('{:^100}'.format("Fin de registro"))
         print(100 * "-")
+
         while True:
             opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
             if opcion_volver_menu.isdigit():
                if int(opcion_volver_menu) == 0:
                   break
+
     if int(opcion)==2:
         print(100*"-")
         print('{:^100}'.format("Lista de activos digitales"))
@@ -94,12 +104,14 @@ while True:
         print("El fundo mutuo en Dogcoin es:",montos_de_criptomoneda[2])
         print("El fundo mutuo en Binance es:",montos_de_criptomoneda[3])
         print(100*"-")
+
         while True:
             opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
             if opcion_volver_menu.isdigit():
                 if int(opcion_volver_menu) == 0:
                     print()
                     break
+                    
     if int(opcion)==3:
         print(100 * "-")
         print('{:^100}'.format("Lista de socios"))
@@ -122,8 +134,6 @@ while True:
         print('{:^100}'.format("GRACIAS POR INVERTIR, VUELVA PRONTO"))
         print(100 * "-")
         break
-
-print("Prueba")
 
 
 
