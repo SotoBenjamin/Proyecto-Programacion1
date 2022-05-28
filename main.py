@@ -15,7 +15,6 @@ while True:
         if opcion.isdigit():
           if 1 <= int(opcion) <= 4:
                break
-
     if int(opcion) == 1:
         print(100*"-")
         print("{:^100}".format("Registro de nuevo socio"))
