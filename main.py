@@ -17,6 +17,10 @@ while True:
                break
 
     if int(opcion) == 1:
+        print(100*"-")
+        print("{:^100}".format("Registro de nuevo socio"))
+        print(100 * "-")
+        print()
         print("Datos personales\n")
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
@@ -78,9 +82,9 @@ while True:
         print(100 * "-")
         while True:
             opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
-            if int(opcion_volver_menu) == 0:
-                print()
-                break
+            if opcion_volver_menu.isdigit():
+               if int(opcion_volver_menu) == 0:
+                  break
     if int(opcion)==2:
         print(100*"-")
         print('{:^100}'.format("Lista de activos digitales"))
