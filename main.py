@@ -41,8 +41,12 @@ while True:
 
         if int(opcion_cripto)==1:
            print()
-           monto_inversion = int(input("Igrese el monto en soles a invertir: "))
-           montos_de_criptomoneda[0]+=monto_inversion
+           while True:
+             monto_inversion = input("Igrese el monto en soles a invertir: ")
+             if monto_inversion.isdigit():
+                if int(monto_inversion) >= 1:
+                   break
+           montos_de_criptomoneda[0]+=int(monto_inversion)
            lista_socios[0].append(nombre)
            lista_socios[1].append("User"+str(t))
            lista_socios[2].append("Bitcoin")
@@ -50,8 +54,12 @@ while True:
            t+=1
         if int(opcion_cripto)==2:
            print()
-           monto_inversion = int(input("Igrese el monto en soles a invertir: "))
-           montos_de_criptomoneda[1]+=monto_inversion
+           while True:
+             monto_inversion = input("Igrese el monto en soles a invertir: ")
+             if monto_inversion.isdigit():
+                if int(monto_inversion) >= 1:
+                   break
+           montos_de_criptomoneda[1]+=int(monto_inversion)
            lista_socios[0].append(nombre)
            lista_socios[1].append("User" + str(t))
            lista_socios[2].append("Etherium")
@@ -59,8 +67,12 @@ while True:
            t+=1
         if int(opcion_cripto) == 3:
             print()
-            monto_inversion = int(input("Igrese el monto en soles a invertir: "))
-            montos_de_criptomoneda[2]+=monto_inversion
+            while True:
+                monto_inversion = input("Igrese el monto en soles a invertir: ")
+                if monto_inversion.isdigit():
+                    if int(monto_inversion) >= 1:
+                        break
+            montos_de_criptomoneda[2]+=int(monto_inversion)
             lista_socios[0].append(nombre)
             lista_socios[1].append("User" + str(t))
             lista_socios[2].append("Dogcoin")
@@ -68,8 +80,12 @@ while True:
             t+=1
         if int(opcion_cripto) == 4:
             print()
-            monto_inversion = int(input("Igrese el monto en soles a invertir: "))
-            montos_de_criptomoneda[3]+=monto_inversion
+            while True:
+                monto_inversion = input("Igrese el monto en soles a invertir: ")
+                if monto_inversion.isdigit():
+                    if int(monto_inversion) >= 1:
+                        break
+            montos_de_criptomoneda[3]+=int(monto_inversion)
             lista_socios[0].append(nombre)
             lista_socios[1].append("User" + str(t))
             lista_socios[2].append("Binance")
