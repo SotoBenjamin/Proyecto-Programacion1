@@ -105,10 +105,7 @@ while True:
         #transpuesta
         lista_transpuesta_socios=transponer(lista_socios)[:]
         #IMPRESION DE MATRIZ
-        for i in range(len(lista_transpuesta_socios)):
-            for j in range(len(lista_transpuesta_socios[0])):
-                print('{:<15}'.format('{:>5}'.format(lista_transpuesta_socios[i][j])), end=" ")
-            print()
+        imprimir(lista_transpuesta_socios)
         #IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
         print(100 * "-")
         #VALIDACION DE DATOS
