@@ -1,84 +1,81 @@
 # Lugar para poner los import
 from funciones import *
-import jeff_funciones.main_funciones as jeff
+from jeff_funciones.main_funciones import *
 
-print(jeff.suma(4,7))
 
-#Variables generales
-opcion_volver_menu=0
-montos_de_criptomoneda=[0,0,0,0]
-monto_inversion=0
-t=1
-lista_socios=[["Nombre"],["Codigo"],["Moneda"],["Monto"]]
+# Variables generales
+opcion_volver_menu = 0
+montos_de_criptomoneda = [0, 0, 0, 0]
+monto_inversion = 0
+t = 1
+lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
-#Inicio del código while
+# Inicio del código while
 while True:
-    #Menú
+    # Menú
     print("Menu de opciones\n")
     print("1. Registro de nuevo socio")
     print("2. Lista de activos digitales")
     print("3. Lista de socios")
     print("4. Salir\n")
 
-    while True:
-        opcion = input("Ingrese una opcion: ")
-        if opcion.isdigit():
-          if 1 <= int(opcion) <= 4:
-               break
+    # Función para seleccionar una opcion
+    opcion = seleccion_de_opcion("Ingrese una opcion: ")
 
-    #Opción 1
+    # Opción 1
     if int(opcion) == 1:
-        print(100*"-",end="\n")
+
+        print(100*"-", end="\n")
         print("{:^100}".format("Registro de nuevo socio"))
-        print(100 * "-","\n")
+        print(100 * "-", "\n")
+
         print("Datos personales\n")
+
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
         correo = input("Ingrese su correo electronico: ")
-        print()
+        e()
         print("Inversion")
-        print()
+        e()
         fecha_inversion = input("Ingrese la fecha: ")
-        print()
+        e()
         print("Criptomoneda a comprar:")
         print("1. Bitcoin")
         print("2. Etherium")
         print("3. Dogcoin")
         print("4. Binance")
 
-        while True:
-            opcion_cripto = input("Selecciona una opcion: ")
-            if opcion_cripto.isdigit():
-              if 1 <= int(opcion_cripto) <= 4:
-                break
+        # Función para seleccionar una opcion
+        opcion_cripto = seleccion_de_opcion("Seleccione una opcion: ")
 
-        if int(opcion_cripto)==1:
-           print()
-           while True:
-             monto_inversion = input("Igrese el monto en soles a invertir: ")
-             if monto_inversion.isdigit():
-                if int(monto_inversion) >= 1:
-                   break
-           montos_de_criptomoneda[0]+=int(monto_inversion)
-           lista_socios[0].append(nombre)
-           lista_socios[1].append("User"+str(t))
-           lista_socios[2].append("Bitcoin")
-           lista_socios[3].append(str(monto_inversion))
-           t+=1
+        if int(opcion_cripto) == 1:
+            print()
+            while True:
+                monto_inversion = input("Igrese el monto en soles a invertir: ")
+                if monto_inversion.isdigit():
+                    if int(monto_inversion) >= 1:
+                        break
+
+            montos_de_criptomoneda[0]+=int(monto_inversion)
+            lista_socios[0].append(nombre)
+            lista_socios[1].append("User"+str(t))
+            lista_socios[2].append("Bitcoin")
+            lista_socios[3].append(str(monto_inversion))
+            t+=1
 
         if int(opcion_cripto)==2:
-           print()
-           while True:
-             monto_inversion = input("Igrese el monto en soles a invertir: ")
-             if monto_inversion.isdigit():
-                if int(monto_inversion) >= 1:
-                   break
-           montos_de_criptomoneda[1]+=int(monto_inversion)
-           lista_socios[0].append(nombre)
-           lista_socios[1].append("User" + str(t))
-           lista_socios[2].append("Etherium")
-           lista_socios[3].append(str(monto_inversion))
-           t+=1
+            print()
+            while True:
+                monto_inversion = input("Igrese el monto en soles a invertir: ")
+                if monto_inversion.isdigit():
+                    if int(monto_inversion) >= 1:
+                        break
+            montos_de_criptomoneda[1]+=int(monto_inversion)
+            lista_socios[0].append(nombre)
+            lista_socios[1].append("User" + str(t))
+            lista_socios[2].append("Etherium")
+            lista_socios[3].append(str(monto_inversion))
+            t+=1
 
         if int(opcion_cripto) == 3:
             print()
