@@ -47,9 +47,9 @@ while True:
 
         # Función para seleccionar una opcion
         opcion_cripto = seleccion_de_opcion("Seleccione una opcion: ")
+        e()
 
         if int(opcion_cripto) == 1:
-            print()
             while True:
                 monto_inversion = input("Igrese el monto en soles a invertir: ")
                 if monto_inversion.isdigit():
@@ -64,7 +64,6 @@ while True:
             t+=1
 
         if int(opcion_cripto)==2:
-            print()
             while True:
                 monto_inversion = input("Igrese el monto en soles a invertir: ")
                 if monto_inversion.isdigit():
@@ -78,13 +77,12 @@ while True:
             t+=1
 
         if int(opcion_cripto) == 3:
-            print()
             while True:
                 monto_inversion = input("Igrese el monto en soles a invertir: ")
                 if monto_inversion.isdigit():
                     if int(monto_inversion) >= 1:
                         break
-            montos_de_criptomoneda[2]+=int(monto_inversion)
+            montos_de_criptomoneda[2] += int(monto_inversion)
             lista_socios[0].append(nombre)
             lista_socios[1].append("User" + str(t))
             lista_socios[2].append("Dogcoin")
@@ -92,7 +90,6 @@ while True:
             t+=1
 
         if int(opcion_cripto) == 4:
-            print()
             while True:
                 monto_inversion = input("Igrese el monto en soles a invertir: ")
                 if monto_inversion.isdigit():
