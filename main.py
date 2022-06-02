@@ -41,7 +41,7 @@ while True:
         print("Criptomoneda a comprar:")
         print("1. Bitcoin")
         print("2. Etherium")
-        print("3. Dogcoin")
+        print("3. Dogecoin")
         print("4. Binance")
 
         # Función para seleccionar una opcion
@@ -65,7 +65,7 @@ while True:
 
         if int(opcion_cripto) == 3:
             montos_de_criptomoneda[2] += int(monto_inversion)
-            lista_socios[2].append("Dogcoin")
+            lista_socios[2].append("Dogecoin")
 
         if int(opcion_cripto) == 4:
             montos_de_criptomoneda[3] += int(monto_inversion)
@@ -86,10 +86,10 @@ while True:
         print('{:^100}'.format("Lista de activos digitales"))
         print(100 * "-")
 
-        print("El fundo mutuo en Bitcoin es:",montos_de_criptomoneda[0])
-        print("El fundo mutuo en Etherium es:",montos_de_criptomoneda[1])
-        print("El fundo mutuo en Dogcoin es:",montos_de_criptomoneda[2])
-        print("El fundo mutuo en Binance es:",montos_de_criptomoneda[3])
+        print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
+        print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
+        print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
+        print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
 
         print(100*"-")
 
@@ -103,16 +103,16 @@ while True:
         print('{:^100}'.format("Lista de socios"))
         print(100 * "-")
 
-        #transpuesta
-        lista_transpuesta_socios=transponer(lista_socios)[:]
+        # transpuesta
+        lista_transpuesta_socios = transponer(lista_socios)[:]
 
-        #IMPRESION DE MATRIZ
+        # IMPRESION DE MATRIZ
         for i in range(len(lista_transpuesta_socios)):
             for j in range(len(lista_transpuesta_socios[0])):
                 print('{:<15}'.format('{:>5}'.format(lista_transpuesta_socios[i][j])), end=" ")
             print()
 
-        #IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
+        # IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
         print(100 * "-")
 
         volver_menu()
