@@ -1,3 +1,6 @@
+import re
+
+
 def seleccion_de_opcion(mensaje):
     '''
     Función con un bucle While que recibe como parámetro el mensaje que se mostrará en el input
@@ -11,11 +14,13 @@ def seleccion_de_opcion(mensaje):
 
     return opcion
 
+
 def e():
     '''
     Funcion para dar espacios y no poner muchos print()
     '''
     print()
+
 
 def monto_de_inversion():
     '''
@@ -30,6 +35,7 @@ def monto_de_inversion():
 
     return monto_inversion
 
+
 def volver_menu():
     '''
     Funcion para volver al menú
@@ -40,5 +46,19 @@ def volver_menu():
         if opcion_volver_menu.isdigit():
             if int(opcion_volver_menu) == 0:
                 break
+
+
+def es_correo_valido(correo):
+    """
+    Usar expresiones regulares para ver si es un correo electrónico válido en Python
+    Recuerda importar el módulo re
+
+    Una expresión regular más precisa es:
+    r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
+    """
+
+    expresion_regular = r'[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{1,3}'
+
+    return re.match(expresion_regular, correo) is not None
 
 

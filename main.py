@@ -32,7 +32,13 @@ while True:
 
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
-        correo = input("Ingrese su correo electronico: ")
+
+        while True:
+            correo = input("Ingrese su correo electronico: ")
+
+            if es_correo_valido(correo):
+                break
+
         e()
         print("Inversion")
         e()
