@@ -1,5 +1,5 @@
 import re
-
+import time
 
 def seleccion_de_opcion(mensaje):
     '''
@@ -45,6 +45,9 @@ def volver_menu():
         opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
         if opcion_volver_menu.isdigit():
             if int(opcion_volver_menu) == 0:
+                e()
+                print("Regresando al menú principal, espere por favor...")
+                time.sleep(3)
                 break
 
 

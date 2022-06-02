@@ -10,7 +10,13 @@ t = 1
 lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
 # Inicio del código while
+
+
 while True:
+    print(100 * "-", end="\n")
+    print("{:^100}".format("FONDOS MUTUOS CRYPTO"))
+    print(100 * "-")
+
     # Menú
     print("Menu de opciones\n")
     print("1. Registro de nuevo socio")
@@ -20,6 +26,8 @@ while True:
 
     # Función para seleccionar una opcion
     opcion = seleccion_de_opcion("Ingrese una opcion: ")
+    time.sleep(0.5)
+    e()
 
     # Opción 1
     if int(opcion) == 1:
@@ -36,13 +44,16 @@ while True:
         while True:
             correo = input("Ingrese su correo electronico: ")
 
-            if es_correo_valido(correo):
+            if correo[-3:] == 'com' or es_correo_valido(correo):
                 break
+
+        time.sleep(0.5)
 
         e()
         print("Inversion")
         e()
         fecha_inversion = input("Ingrese la fecha: ")
+        time.sleep(0.5)
         e()
         print("Criptomoneda a comprar:")
         print("1. Bitcoin")
@@ -77,6 +88,7 @@ while True:
             montos_de_criptomoneda[3] += int(monto_inversion)
             lista_socios[2].append("Binance")
 
+        e()
         print(100 * "-")
         print('{:^100}'.format("Fin de registro"))
         print(100 * "-")
@@ -128,7 +140,9 @@ while True:
     if int(opcion) == 4:
 
         print(100 * "-")
-        print('{:^100}'.format("GRACIAS POR INVERTIR, VUELVA PRONTO"))
+        print('{:^100}'.format("Cerrando el programa"))
+        time.sleep(2)
+        print('{:^100}'.format("GRACIAS POR INVERTIR EN CRYPTO, VUELVA PRONTO"))
         print(100 * "-")
 
         break

@@ -13,3 +13,7 @@ def es_correo_valido(correo):
     expresion_regular = r'[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{1,3}'
 
     return re.match(expresion_regular, correo) is not None
+
+correo = input("Correo: ")
+
+print(correo[-3:])
