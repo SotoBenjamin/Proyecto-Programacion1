@@ -73,7 +73,14 @@ def es_correo_valido(correo):
 
     return re.match(expresion_regular, correo) is not None
 
-
+def imprimir(matriz):
+    """
+    Imprime la matriz
+    """
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            print('{:<15}'.format('{:>5}'.format(matriz[i][j])), end=" ")
+        print()
 
 
 
