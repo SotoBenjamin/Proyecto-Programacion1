@@ -116,7 +116,6 @@ while True:
 
     #Opción 3
     if int(opcion) == 3:
-
         print(100 * "-")
         print('{:^100}'.format("Lista de socios"))
         print(100 * "-")

@@ -73,8 +73,63 @@ def es_correo_valido(correo):
 
     return re.match(expresion_regular, correo) is not None
 
-
-
-
+def es_fecha_valida(fecha):
+    """
+    Valida una fecha ; para ser valida la fecha debe tener el siguiente formato
+    dd/mm/yyy . Considera años bisiestos
+    """
+    lista=fecha.split("/")
+    bool1=False
+    bool2=False
+    bool3=False
+    if len(lista)==3:
+        bool1=True
+    if len(lista[0])==2 and len(lista[1])==2 and len(lista[2])==4:
+         bool2=True
+    dia=int(lista[0])
+    mes=int(lista[1])
+    anio=int(lista[2])
+    if mes==1:
+        if 1<=dia<=31:
+            bool3=True
+    if mes==2:
+        if anio%4==0 and (anio%100!=0 or anio%400==0):
+            if 1<=dia<=29:
+                bool3=True
+        else:
+            if 1<=dia<=28:
+                bool3=True
+    if mes==3:
+        if 1<=dia<=31:
+            bool3=True
+    if mes == 4:
+        if 1 <= dia <= 30:
+            bool3 = True
+    if mes == 5:
+        if 1 <= dia <= 31:
+            bool3 = True
+    if mes == 6:
+        if 1 <= dia <= 30:
+            bool3 = True
+    if mes == 7:
+        if 1 <= dia <= 31:
+            bool3 = True
+    if mes == 8:
+        if 1 <= dia <= 31:
+            bool3 = True
+    if mes == 9:
+        if 1 <= dia <= 30:
+            bool3 = True
+    if mes == 10:
+        if 1 <= dia <= 31:
+            bool3 = True
+    if mes == 11:
+        if 1 <= dia <= 30:
+            bool3 = True
+    if mes == 12:
+        if 1 <= dia <= 31:
+            bool3= True
+    return bool1 and bool2 and bool3
+print(es_fecha_valida("29/02/2004"))
 
 

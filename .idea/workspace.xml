@@ -26,7 +26,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.funciones">
     <configuration name="funciones" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -73,8 +73,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.funciones" />
+        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -87,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1653942164933</updated>
       <workItem from="1653942169358" duration="147000" />
-      <workItem from="1654179469550" duration="2908000" />
+      <workItem from="1654179469550" duration="9222000" />
     </task>
     <servers />
   </component>
@@ -95,7 +95,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Proyecto_Programacion1$funciones.coverage" NAME="funciones Coverage Results" MODIFIED="1654189573444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Proyecto_Programacion1$funciones.coverage" NAME="funciones Coverage Results" MODIFIED="1654201854084" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Proyecto_Programacion1$main.coverage" NAME="main Coverage Results" MODIFIED="1654189588719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
