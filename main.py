@@ -1,6 +1,6 @@
 # Lugar para poner los import
 from funciones import *
-from jeff_funciones.main_funciones import *
+
 
 
 # Variables generales
