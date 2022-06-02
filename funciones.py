@@ -11,9 +11,7 @@ def transponer(matrix):
 
 def imprimir(lista):
     """
-
     Imprime la matriz
-
     """
     for i in range(len(lista)):
         for j in range(len(lista[0])):
