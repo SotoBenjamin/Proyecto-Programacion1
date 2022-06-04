@@ -82,6 +82,36 @@ def imprimir(matriz):
             print('{:<15}'.format('{:>5}'.format(matriz[i][j])), end=" ")
         print()
 
-
-
-
+def es_fecha_valida(fecha):
+    bool = 0
+    veredicto = False
+    if len(fecha) == 10:
+        bool+=1
+    lista=fecha.split("/")
+    if lista[0].isdigit() and lista[1].isdigit() and lista[2].isdigit():
+        bool+=1
+        if len(lista[0]) == 2 and len(lista[1]) == 2 and len(lista[2]) == 4:
+            bool+=1
+        dia = int(lista[0])
+        mes = int(lista[1])
+        anio = int(lista[2])
+        if mes == (1 or 3 or 5 or 7 or 8 or 10 or 12):
+            if 1 <= dia <= 31:
+                bool+=1
+        if mes == (4 or 6 or 9 or 11):
+            if 1 <= dia <= 30:
+                bool+=1
+        if mes == 2:
+            if anio % 4 == 0 and (anio % 100 !=0 or anio % 400 == 0):
+                if 1 <= dia <= 29:
+                    bool+=1
+            else:
+                if 1 <= dia <= 28:
+                    bool+=1
+        if anio >=1800:
+            bool+=1
+        if bool==5:
+            veredicto = True
+        if bool!=5:
+            veredicto = False
+    return veredicto

@@ -52,7 +52,10 @@ while True:
         e()
         print("Inversion")
         e()
-        fecha_inversion = input("Ingrese la fecha: ")
+        while True:
+           fecha_inversion = input("Ingrese la fecha: ")
+           if es_fecha_valida(fecha_inversion):
+               break
         time.sleep(0.5)
         e()
         print("Criptomoneda a comprar:")
