@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="34a017d4-3d34-47b2-8c72-47c0b6f92c13" name="Changes" comment="" />
+    <list default="true" id="34a017d4-3d34-47b2-8c72-47c0b6f92c13" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,11 +89,8 @@
       <option name="presentableId" value="Default" />
       <updated>1653942164933</updated>
       <workItem from="1653942169358" duration="147000" />
-<<<<<<< Updated upstream
-      <workItem from="1654179469550" duration="11758000" />
-=======
-      <workItem from="1654179469550" duration="11359000" />
->>>>>>> Stashed changes
+      <workItem from="1654179469550" duration="12753000" />
+      <workItem from="1654272755856" duration="575000" />
     </task>
     <servers />
   </component>
