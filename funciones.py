@@ -92,10 +92,10 @@ def es_fecha_valida(fecha):
         dia = int(lista[0])
         mes = int(lista[1])
         anio = int(lista[2])
-        if mes == (1 or 3 or 5 or 7 or 8 or 10 or 12):
+        if mes in [1,3,5,7,8,10,12]:
             if 1 <= dia <= 31:
                 bool+=1
-        if mes == (4 or 6 or 9 or 11):
+        if mes in [4,6,9,11]:
             if 1 <= dia <= 30:
                 bool+=1
         if mes == 2:
