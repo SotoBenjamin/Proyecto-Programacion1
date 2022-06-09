@@ -62,8 +62,26 @@ def volver_menu():
 
 def es_correo_valido(correo):
     """
-    Usar expresiones regulares para ver si es un correo electrónico válido en Python
-    Recuerda importar el módulo re
+    Librería re (Regular expresions, RegEx, Expresiones regulares)
+    - RegEx es una librería que se utiliza para validar strings mediante la creación de ciertos patrones
+    - Se puede usar expresiones regulares para ver si es un correo electrónico válido en Python
+
+    Formato de correo:
+    usuario@dominio.extension
+
+    Metacarácteres RegEx:
+    r''      --> comprueba que el string que se está ingresando es una expresión regular
+    ^        --> indica que la comprobación inicia desde ahí
+    [a-z]    --> carácteres alfanuméricos ingleses
+    [0-9]    --> carácteres numéricos
+    [\-_ \.] --> carácteres "._-" (se utiliza el backslash para que no se interprete como un metacaracter)
+    +        --> el patrón colocado anteriormente al + se puede repetir ilimitadas veces
+    [@]      --> comprueba la existencia de un @
+    [.]      --> comprueba la exixtencia de un .
+    {2,3}    --> comprueba que la extención del string tiene 2 a 3 carácteres
+    ()       --> encierra cierto patrón entre paréntesis para separarlo
+    ?        --> el patrón colocado anteriormente al ? se puede repetir una o ninguna vez
+    $        --> indica que la comprobación termina hasta ahí
     """
 
     expresion_regular = r'^[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{2,3}([.][a-z]{2,3})?$'
