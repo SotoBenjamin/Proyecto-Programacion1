@@ -82,6 +82,8 @@ def es_correo_valido(correo):
     ()       --> encierra cierto patrón entre paréntesis para separarlo
     ?        --> el patrón colocado anteriormente al ? se puede repetir una o ninguna vez
     $        --> indica que la comprobación termina hasta ahí
+
+    RegEx: https://www.youtube.com/watch?v=wmJMjK5xbzc
     """
 
     expresion_regular = r'^[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{2,3}([.][a-z]{2,3})?$'
