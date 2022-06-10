@@ -13,9 +13,9 @@ lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
 
 while True:
-    print(100 * "-", end="\n")
-    print("{:^100}".format("FONDOS MUTUOS CRYPTO"))
-    print(100 * "-")
+    print(50 * "-", end="\n")
+    print("{:^50}".format("FONDOS MUTUOS CRYPTO"))
+    print(50 * "-")
 
     # Menú
     print("Menu de opciones\n")
