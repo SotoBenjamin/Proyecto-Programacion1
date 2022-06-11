@@ -1,7 +1,7 @@
 # Lugar para poner los import
 from funciones import *
 
-
+iniciador('Iniciando programa del servidor')
 
 # Variables generales
 opcion_volver_menu = 0

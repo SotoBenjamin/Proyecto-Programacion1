@@ -150,3 +150,18 @@ def Separadores_de_cierre(texto1, texto2):
     time.sleep(2)
     print('{:^100}'.format(texto2))
     print(45 * "⩏⩎")
+
+def iniciador(texto):
+    print('\t'*4,texto,end='')
+    time.sleep(0.9)
+    print('.',end='')
+    time.sleep(0.8)
+    print('.',end='')
+    time.sleep(0.7)
+    print('.', end='')
+    time.sleep(0.6)
+    print('.',end='')
+    time.sleep(0.5)
+    print('.')
+    time.sleep(0.4)
+    print('\t')
