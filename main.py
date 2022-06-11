@@ -41,7 +41,7 @@ while True:
         while True:
             correo = input("Ingrese su correo electronico: ")
 
-            if correo[-3:] == 'com' or es_correo_valido(correo):
+            if es_correo_valido(correo):
                 break
         print('')
         iniciador('Cargando nueva informacion','Informacion actualizada.')

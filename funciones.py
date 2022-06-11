@@ -85,7 +85,7 @@ def es_correo_valido(correo):
     RegEx: https://www.youtube.com/watch?v=wmJMjK5xbzc
     """
 
-    expresion_regular = r'^[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{2,3}([.][a-z]{2,3})?$'
+    expresion_regular = r'^[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{2,3}([.][a-z]{2})?$'
 
     return re.match(expresion_regular, correo) is not None
 
