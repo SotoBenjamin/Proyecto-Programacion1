@@ -13,6 +13,7 @@ lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
 
 while True:
+
     Separadores("FONDOS MUTUOS CRYPTO")
 
     # Menú
