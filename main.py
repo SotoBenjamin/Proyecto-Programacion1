@@ -13,9 +13,7 @@ lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
 
 while True:
-    print(50 * "-", end="\n")
-    print("{:^50}".format("FONDOS MUTUOS CRYPTO"))
-    print(50 * "-")
+    Separadores("FONDOS MUTUOS CRYPTO")
 
     # Menú
     print("Menu de opciones\n")
@@ -32,9 +30,7 @@ while True:
     # Opción 1
     if int(opcion) == 1:
 
-        print(100*"-", end="\n")
-        print("{:^100}".format("Registro de nuevo socio"))
-        print(100 * "-", "\n")
+        Separadores("Registro de nuevo socio")
 
         print("Datos personales\n")
 
@@ -92,9 +88,8 @@ while True:
             lista_socios[2].append("Binance")
 
         e()
-        print(100 * "-")
-        print('{:^100}'.format("Fin de registro"))
-        print(100 * "-")
+        Separadores("Fin de registro")
+        print(' ')
 
         # Funcion para volver al menú
         volver_menu()
@@ -103,9 +98,7 @@ while True:
     #Opcion 2
     if int(opcion) == 2:
 
-        print(100*"-")
-        print('{:^100}'.format("Lista de activos digitales"))
-        print(100 * "-")
+        Separadores("Lista de activos digitales")
 
         print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
         print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
@@ -120,9 +113,7 @@ while True:
     #Opción 3
     if int(opcion) == 3:
 
-        print(100 * "-")
-        print('{:^100}'.format("Lista de socios"))
-        print(100 * "-")
+        Separadores("Lista de socios")
 
         # transpuesta
         lista_transpuesta_socios = transponer(lista_socios)[:]
@@ -138,11 +129,7 @@ while True:
     #Opción 4
     if int(opcion) == 4:
 
-        print(100 * "-")
-        print('{:^100}'.format("Cerrando el programa"))
-        time.sleep(2)
-        print('{:^100}'.format("GRACIAS POR INVERTIR EN CRYPTO, VUELVA PRONTO"))
-        print(100 * "-")
+        Separadores_de_cierre("Cerrando el programa","GRACIAS POR INVERTIR EN CRYPTO, VUELVA PRONTO")
 
         break
 

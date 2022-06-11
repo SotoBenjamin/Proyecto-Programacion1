@@ -135,3 +135,18 @@ def es_fecha_valida(fecha):
         return veredicto
     else:
         return veredicto
+
+
+def Separadores(texto):
+
+    print(25 * "⩎⩏", end="\n")
+    print("{:^60}".format(texto))
+    print(25 * "⩏⩎")
+
+
+def Separadores_de_cierre(texto1, texto2):
+    print(45 * "⩎⩏")
+    print('{:^100}'.format(texto1))
+    time.sleep(2)
+    print('{:^100}'.format(texto2))
+    print(45 * "⩏⩎")
