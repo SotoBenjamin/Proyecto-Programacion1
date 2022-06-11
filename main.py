@@ -1,7 +1,7 @@
 # Lugar para poner los import
 from funciones import *
 
-iniciador('Iniciando programa del servidor')
+iniciador('Iniciando programa del servidor','Carga con exito.')
 
 # Variables generales
 opcion_volver_menu = 0
@@ -42,8 +42,8 @@ while True:
 
             if correo[-3:] == 'com' or es_correo_valido(correo):
                 break
-
-        time.sleep(0.5)
+        print('')
+        iniciador('Cargando nueva informacion','Informacion actualizada.')
 
         e()
         print("Inversion")
@@ -86,14 +86,15 @@ while True:
         if int(opcion_cripto) == 4:
             montos_de_criptomoneda[3] += int(monto_inversion)
             lista_socios[2].append("Binance")
-
+        print('\t')
+        iniciador('Guardando informacion','Informacion guardada.')
+        print(' ')
         e()
         Separadores("Fin de registro")
         print(' ')
 
         # Funcion para volver al menú
         volver_menu()
-        e()
 
     #Opcion 2
     if int(opcion) == 2:
@@ -128,8 +129,7 @@ while True:
 
     #Opción 4
     if int(opcion) == 4:
-
-        Separadores_de_cierre("Cerrando el programa","GRACIAS POR INVERTIR EN CRYPTO, VUELVA PRONTO")
+        iniciador('Cerrando el programa','')
+        Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
 
         break
-

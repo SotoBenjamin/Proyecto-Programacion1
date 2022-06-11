@@ -38,7 +38,7 @@ def monto_de_inversion():
     '''
 
     while True:
-        monto_inversion = input("Igrese el monto en soles a invertir: ")
+        monto_inversion = input("Ingrese el monto en soles a invertir: ")
         if monto_inversion.isdigit():
             if int(monto_inversion) >= 1:
                 break
@@ -56,8 +56,7 @@ def volver_menu():
         if opcion_volver_menu.isdigit():
             if int(opcion_volver_menu) == 0:
                 e()
-                print("Regresando al menú principal, espere por favor...")
-                time.sleep(3)
+                iniciador("Regresando al menú principal, espere por favor",'')
                 break
 
 def es_correo_valido(correo):
@@ -151,17 +150,19 @@ def Separadores_de_cierre(texto1, texto2):
     print('{:^100}'.format(texto2))
     print(45 * "⩏⩎")
 
-def iniciador(texto):
-    print('\t'*4,texto,end='')
-    time.sleep(0.9)
-    print('.',end='')
+def iniciador(texto1,texto2):
+    print('\t'*4,texto1,end='')
     time.sleep(0.8)
     print('.',end='')
     time.sleep(0.7)
-    print('.', end='')
-    time.sleep(0.6)
     print('.',end='')
+    time.sleep(0.6)
+    print('.', end='')
     time.sleep(0.5)
-    print('.')
+    print('.',end='')
     time.sleep(0.4)
+    print('.')
+    time.sleep(0.3)
+    print('\t'*4,texto2)
     print('\t')
+    time.sleep(0.3)
