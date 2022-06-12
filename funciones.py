@@ -1,7 +1,7 @@
 import re
 import time
 
-#Matriz Transpuesta
+
 def transponer(matrix):
     """
     Calcula la transpuesta de una matriz
@@ -12,6 +12,7 @@ def transponer(matrix):
         for j in range(len(matrix)):
             transpuesta[i].append(matrix[j][i])
     return transpuesta
+
 
 def seleccion_de_opcion(mensaje):
     '''
@@ -26,11 +27,13 @@ def seleccion_de_opcion(mensaje):
 
     return opcion
 
+
 def e():
     '''
     Funcion para dar espacios y no poner muchos print()
     '''
     print()
+
 
 def monto_de_inversion():
     '''
@@ -56,8 +59,9 @@ def volver_menu():
         if opcion_volver_menu.isdigit():
             if int(opcion_volver_menu) == 0:
                 e()
-                iniciador("Regresando al menú principal, espere por favor",'')
+                iniciador("Regresando al menú principal, espere por favor",'',2)
                 break
+
 
 def es_correo_valido(correo):
     """
@@ -73,7 +77,7 @@ def es_correo_valido(correo):
     ^        --> indica que la comprobación inicia desde ahí
     [a-z]    --> carácteres alfanuméricos ingleses
     [0-9]    --> carácteres numéricos
-    [\-_ \.] --> carácteres "._-" (se utiliza el backslash para que no se interprete como un metacaracter)
+    [\-_ \.] --> carácteres "._-"(se utiliza el backslash para que no se interprete como un metacaracter)
     +        --> el patrón colocado anteriormente al + se puede repetir ilimitadas veces
     [@]      --> comprueba la existencia de un @
     [.]      --> comprueba la exixtencia de un .
@@ -89,6 +93,7 @@ def es_correo_valido(correo):
 
     return re.match(expresion_regular, correo) is not None
 
+
 def imprimir(matriz):
     """
     Imprime la matriz
@@ -98,7 +103,14 @@ def imprimir(matriz):
             print('{:<15}'.format('{:>5}'.format(matriz[i][j])), end=" ")
         print()
 
+
 def es_fecha_valida(fecha):
+    '''
+    Esta función valida si la fecha es correcta.
+    Para ello corrobora que la fecha tenga el formato dd/mm/yyyy.
+    Además, corrobora que tanto el día, mes y año sean valores coherentes considerando años bisiestos
+    '''
+
     bool = 0
     veredicto = False
     if "/" in fecha:
@@ -137,8 +149,11 @@ def es_fecha_valida(fecha):
 
 
 def Separadores(texto):
+    '''
+    Esta función recibe como parámetro un string y lo imprime entre dos secuencias de 25 caracteres del tipo ⩎⩏
+    '''
 
-    print(25 * "⩎⩏", end="\n")
+    print(25 * "⩎⩏")
     print("{:^60}".format(texto))
     print(25 * "⩏⩎")
 
@@ -150,19 +165,25 @@ def Separadores_de_cierre(texto1, texto2):
     print('{:^100}'.format(texto2))
     print(45 * "⩏⩎")
 
-def iniciador(texto1,texto2):
-    print('\t'*4,texto1,end='')
+
+def iniciador(texto1,texto2,switch=1):
+    if switch == 1:
+        print('\t' * 4, texto1, end='')
+    else:
+        print('\t'*2,texto1, end='')
+
     time.sleep(0.8)
-    print('.',end='')
+    print('.', end='')
     time.sleep(0.7)
-    print('.',end='')
+    print('.', end='')
     time.sleep(0.6)
     print('.', end='')
     time.sleep(0.5)
-    print('.',end='')
+    print('.', end='')
     time.sleep(0.4)
     print('.')
     time.sleep(0.3)
-    print('\t'*4,texto2)
-    print('\t')
-    time.sleep(0.3)
+
+    if switch == 1:
+        print('\t' * 4, texto2)
+        time.sleep(0.3)

@@ -2,6 +2,7 @@
 from funciones import *
 
 iniciador('Iniciando programa del servidor','Carga con exito.')
+e()
 
 # Variables generales
 opcion_volver_menu = 0
@@ -10,10 +11,7 @@ t = 1
 lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
 
 # Inicio del código while
-
-
 while True:
-
     Separadores("FONDOS MUTUOS CRYPTO")
 
     # Menú
@@ -30,29 +28,33 @@ while True:
 
     # Opción 1
     if int(opcion) == 1:
-
         Separadores("Registro de nuevo socio")
+        e()
 
         print("Datos personales\n")
 
+        ## Ingreso de datos
         nombre = input("Ingrese el nombre del socio: ")
         apellido = input("Ingrese el apellido del socio: ")
 
+        ## Validación del correo
         while True:
             correo = input("Ingrese su correo electronico: ")
-
             if es_correo_valido(correo):
                 break
-        print('')
-        iniciador('Cargando nueva informacion','Informacion actualizada.')
 
         e()
+        iniciador('Cargando nueva informacion','Informacion actualizada.')
+        e()
+
         print("Inversion")
         e()
+
+        ## Validación de la fecha
         while True:
-           fecha_inversion = input("Ingrese la fecha: ")
-           if es_fecha_valida(fecha_inversion):
-               break
+            fecha_inversion = input("Ingrese la fecha: ")
+            if es_fecha_valida(fecha_inversion):
+                break
         time.sleep(0.5)
         e()
         print("Criptomoneda a comprar:")
@@ -87,15 +89,16 @@ while True:
         if int(opcion_cripto) == 4:
             montos_de_criptomoneda[3] += int(monto_inversion)
             lista_socios[2].append("Binance")
-        print('\t')
-        iniciador('Guardando informacion','Informacion guardada.')
-        print(' ')
+
         e()
+        iniciador('Guardando informacion','Informacion guardada.')
+        e()
+
         Separadores("Fin de registro")
-        print(' ')
 
         # Funcion para volver al menú
         volver_menu()
+        e()
 
     #Opcion 2
     if int(opcion) == 2:
@@ -107,7 +110,7 @@ while True:
         print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
         print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
 
-        print(100*"-")
+        print(63*"-")
 
         volver_menu()
         e()
@@ -123,7 +126,7 @@ while True:
         # IMPRESION DE MATRIZ
         imprimir(lista_transpuesta_socios)
         # IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
-        print(100 * "-")
+        print(63*"-")
 
         volver_menu()
         e()
