@@ -65,6 +65,12 @@ def volver_menu():
 
 def es_correo_valido(correo):
     """
+    Esta función valida el ingreso del correo electrónico.
+    Recibe como parámetro un string (correo) y a través de la librería re,
+    genera expresiones regulares que funcionan como patrones para verificar cada sección del correo
+    (usuario@dominio.extension). Devuelve true si es un correo válido.
+
+    Más info...
     Librería re (Regular expresions, RegEx, Expresiones regulares)
     - RegEx es una librería que se utiliza para validar strings mediante la creación de ciertos patrones
     - Se puede usar expresiones regulares para ver si es un correo electrónico válido en Python
@@ -86,7 +92,9 @@ def es_correo_valido(correo):
     ?        --> el patrón colocado anteriormente al ? se puede repetir una o ninguna vez
     $        --> indica que la comprobación termina hasta ahí
 
-    RegEx: https://www.youtube.com/watch?v=wmJMjK5xbzc
+
+    Gogetmyguru (12 de mayo de 2021). # 5 Python RegEx metacharacters | Python Advanced Tutorial. [video de Youtube]
+    https://www.youtube.com/watch?v=wmJMjK5xbzc
     """
 
     expresion_regular = r'^[a-z0-9\-_\.]+[@][a-z]+[.][a-z]{2,3}([.][a-z]{2})?$'
@@ -156,14 +164,6 @@ def Separadores(texto):
     print(25 * "⩎⩏")
     print("{:^60}".format(texto))
     print(25 * "⩏⩎")
-
-
-def Separadores_de_cierre(texto1, texto2):
-    print(45 * "⩎⩏")
-    print('{:^100}'.format(texto1))
-    time.sleep(2)
-    print('{:^100}'.format(texto2))
-    print(45 * "⩏⩎")
 
 
 def iniciador(texto1,texto2,switch=1):
