@@ -19,7 +19,9 @@ while True:
     print("1. Registro de nuevo socio")
     print("2. Lista de activos digitales")
     print("3. Lista de socios")
-    print("4. Salir\n")
+    print("4. Leer base de datos")
+    print("5. Guardar base de datos")
+    print("6. Salir\n")
 
     # Función para seleccionar una opcion
     opcion = seleccion_de_opcion("Ingrese una opcion: ")
@@ -105,14 +107,27 @@ while True:
 
         Separadores("Lista de activos digitales")
 
-        print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
-        print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
-        print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
-        print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
+        print("1. Tabla de inversiones")
+        print("2. Estadisticas mensuales")
+        print("3. Regresar al menú principal")
+        e()
+        while True:
+            opcion_lista_activos = input("Ingrese una opcion:")
+            if opcion_lista_activos.isdigit():
+                if 1<= int(opcion_lista_activos) <=3:
+                    break
+        if int(opcion_lista_activos) == 1:
+                print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
+                print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
+                print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
+                print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
+        if int(opcion_lista_activos) == 2:
+            print("investigar histograma de inversion por mes de las monedas")
+        if int(opcion_lista_activos) == 3:
+            volver_menu_version2("3")
 
         print(63*"-")
 
-        volver_menu()
         e()
 
     #Opción 3
@@ -133,6 +148,16 @@ while True:
 
     #Opción 4
     if int(opcion) == 4:
+        print("Leer base de datos")
+        volver_menu()
+
+    #Opción 5
+    if int(opcion) == 5:
+        print("Guardar base de datos")
+        volver_menu()
+
+    #Opción 6
+    if int(opcion) == 6:
         iniciador('Cerrando el programa','')
         Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
 
