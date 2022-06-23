@@ -125,7 +125,7 @@ while True:
         if mes_num==12:
             mes="Diciembre"
 
-        cryptos_mes[mes][moneda]+=int(monto_inversion)
+        cryptos_mes[mes][moneda] += int(monto_inversion)
         data1=pd.DataFrame(cryptos_mes)
 
 
@@ -197,15 +197,16 @@ while True:
                        print("8. Cryptos en Agosto")
                        print("9. Cryptos en Septiembre")
                        print("10. Cryptos en Octubre")
-                       print("11. Cryptos en Diciembre")
-                       print("12. Cryptos en Abril")
-                       print("13.Volver a La lista de activos digitales")
+                       print("11. Cryptos en Noviembre")
+                       print("12. Cryptos en Diciembre")
+                       print("13. Cryptos Anual")
+                       print("14.Volver a La lista de activos digitales")
                        e()
                        e()
                        while True:
                            opcion_estadisticas_mensuales = input("Ingrese una opcion:")
                            if opcion_estadisticas_mensuales.isdigit():
-                               if 1 <= int(opcion_estadisticas_mensuales) <= 13:
+                               if 1 <= int(opcion_estadisticas_mensuales) <= 14:
                                    break
                        if int(opcion_estadisticas_mensuales)==1:
 
@@ -222,7 +223,7 @@ while True:
                        if int(opcion_estadisticas_mensuales)==2:
 
                            if grafico_circular("Febrero",cryptos_mes):
-                              Separadores("Se muestra el gráfico de barras para el mes de Febrero")
+                              Separadores("Se muestra el gráfico circular y de barras para el mes de Febrero")
                               data1["Febrero"].plot(kind="barh")
                               plt.show()
                               data1["Febrero"].plot(kind="pie")
@@ -234,7 +235,7 @@ while True:
                        if int(opcion_estadisticas_mensuales)==3:
 
                            if grafico_circular("Marzo",cryptos_mes):
-                               Separadores("Se muestra el gráfico de barras para el mes de Marzo")
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Marzo")
                                data1["Marzo"].plot(kind="barh")
                                plt.show()
                                data1["Marzo"].plot(kind="pie")
@@ -262,6 +263,7 @@ while True:
                                data1["Mayo"].plot(kind="barh")
                                plt.show()
                                data1["Mayo"].plot(kind="pie")
+                               plt.show()
                            else:
                                print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
@@ -347,8 +349,18 @@ while True:
                            else:
                                print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales) == 13:
+                           if validar_estadistica_anual(cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras del análisis anual de las Cryptos")
+                               data1.sum().plot(kind="barh")
+                               plt.show()
+                               data1.sum().plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No se ha ingresado ningun dato")
+                           volver_menu_Estadisticas_mensuales()
 
-                       if int(opcion_estadisticas_mensuales)==13:
+                       if int(opcion_estadisticas_mensuales)==14:
                            iniciador("Volviendo a La lista de activos digitales", "Operación realizada con éxito")
                            break
 

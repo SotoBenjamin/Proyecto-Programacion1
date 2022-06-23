@@ -1,15 +1,8 @@
 import re
 import time
-<<<<<<< Updated upstream
-# <<<<<<< Updated upstream
-import pandas as pd
-# =======
-# >>>>>>> Stashed changes
-# import matplotlib.pyplot as plt
-=======
 import pandas as pd
 import matplotlib.pyplot as plt
->>>>>>> Stashed changes
+
 
 
 def transponer(matrix):
@@ -213,6 +206,14 @@ def grafico_circular(mes,dic):
            break
     return bool
 
+def validar_estadistica_anual(diccionario):
+    bool=False
+    for i in diccionario.keys():
+        for j in diccionario[i].keys():
+            if diccionario[i][j]>0:
+                bool=True
+                break
+    return bool
 
 
 
