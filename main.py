@@ -10,7 +10,20 @@ opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
 t = 1
 lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
-cryptos_mes={} #diccionario de inversiones por moneda y mes
+cryptos_mes={
+"Enero":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Febrero":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Marzo":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Abril":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Mayo":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Junio":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Julio":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Agosto":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Septiembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Octubre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Noviembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Diciembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+} #diccionario de inversiones por moneda y mes
 mes=""
 moneda=""
 # Inicio del código while
@@ -109,13 +122,10 @@ while True:
             mes="Noviembre"
         if mes_num==12:
             mes="Diciembre"
-        if moneda not in cryptos_mes.keys():
-           cryptos_mes[moneda]={}
-        if mes not in cryptos_mes[moneda].keys():
-            cryptos_mes[moneda][mes]=0
-        cryptos_mes[moneda][mes] += int(monto_inversion)
-        data_cryptos=pd.DataFrame(cryptos_mes)
-        #cryptos_mes[mes]+=monto_inversion
+
+        cryptos_mes[mes][moneda]+=int(monto_inversion)
+        data1=pd.DataFrame(cryptos_mes)
+
 
 
         lista_socios[0].append(nombre)
@@ -169,7 +179,7 @@ while True:
                 print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
                 print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
         if int(opcion_lista_activos) == 2:
-                print(data_cryptos)
+                print(data1.head())
         if int(opcion_lista_activos) == 3:
             volver_menu_version2("3")
 
