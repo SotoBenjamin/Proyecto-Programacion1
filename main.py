@@ -38,14 +38,15 @@ while True:
     print("3. Lista de socios")
     print("4. Leer base de datos")
     print("5. Guardar base de datos")
-    print("6. Salir\n")
+    print("6. Estado de inversiones")
+    print("7. Salir\n")
 
     # Función para seleccionar una opcion
     opcion = seleccion_de_opcion("Ingrese una opcion: ")
     time.sleep(0.5)
     e()
 
-    # Opción 1
+    # Opción 1 - Agregar nuevo socio
     if int(opcion) == 1:
         Separadores("Registro de nuevo socio")
         e()
@@ -160,7 +161,7 @@ while True:
         volver_menu()
         e()
 
-    #Opcion 2
+    #Opcion 2 - Lista de activos digitales
     if int(opcion) == 2:
            while True:
                Separadores("Lista de activos digitales")
@@ -282,7 +283,7 @@ while True:
 
                e()
 
-    #Opción 3
+    #Opción 3 - Lista de socios
     if int(opcion) == 3:
 
         Separadores("Lista de socios")
@@ -298,18 +299,23 @@ while True:
         volver_menu()
         e()
 
-    #Opción 4
+    #Opción 4 - Leer base de datos
     if int(opcion) == 4:
         print("Leer base de datos")
         volver_menu()
 
-    #Opción 5
+    #Opción 5 - Guardar base de datos
     if int(opcion) == 5:
         print("Guardar base de datos")
         volver_menu()
 
-    #Opción 6
+    #Opción 6 - Estado de inversiones
     if int(opcion) == 6:
+        print("Estado de inversiones")
+        volver_menu()
+
+    #Opción 7 - Salir
+    if int(opcion) == 7:
         iniciador('Cerrando el programa','')
         Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
 

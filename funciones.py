@@ -1,10 +1,10 @@
 import re
 import time
-<<<<<<< Updated upstream
+# <<<<<<< Updated upstream
 import pandas as pd
-=======
->>>>>>> Stashed changes
-import matplotlib.pyplot as plt
+# =======
+# >>>>>>> Stashed changes
+# import matplotlib.pyplot as plt
 
 
 def transponer(matrix):
@@ -27,7 +27,7 @@ def seleccion_de_opcion(mensaje):
     while True:
         opcion = input(mensaje)
         if opcion.isdigit():
-            if 1 <= int(opcion) <= 6:
+            if 1 <= int(opcion) <= 7:
                 break
 
     return opcion
@@ -79,6 +79,8 @@ def volver_menu_lista_activos():
                 e()
                 iniciador("Regresando a la Lista de activos digitales, espere por favor",'',2)
                 break
+
+
 def volver_menu_Estadisticas_mensuales():
     '''
     Funcion para volver al menú
@@ -196,6 +198,8 @@ def es_fecha_valida(fecha):
                 return False
     else:
         return False
+
+
 def grafico_circular(mes,dic):
     bool=False
     for i in dic[mes].keys():
