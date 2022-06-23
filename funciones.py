@@ -27,7 +27,6 @@ def seleccion_de_opcion(mensaje):
         if opcion.isdigit():
             if 1 <= int(opcion) <= 7:
                 break
-
     return opcion
 
 
