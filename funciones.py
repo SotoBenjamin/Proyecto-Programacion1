@@ -70,14 +70,26 @@ def volver_menu_lista_activos():
     '''
 
     while True:
-        opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
+        opcion_volver_menu = input("Ingrese 0 para regresar a la Lista de activos digitales: ")
         if opcion_volver_menu.isdigit():
             if int(opcion_volver_menu) == 0:
                 e()
                 iniciador("Regresando a la Lista de activos digitales, espere por favor",'',2)
                 break
+def volver_menu_Estadisticas_mensuales():
+    '''
+    Funcion para volver al menú
+    '''
 
-def volver_menu_version2(opcion_volver_menu):
+    while True:
+        opcion_volver_menu = input("Ingrese 0 para regresar a las Estadisticas mensuales: ")
+        if opcion_volver_menu.isdigit():
+            if int(opcion_volver_menu) == 0:
+                e()
+                iniciador("Regresando a las Estadisticas Mensuales, espere por favor",'',2)
+                break
+
+def volver_menu_version2(opcion_volver_menu,k):
     '''
     Funcion para volver al menú
     '''
@@ -85,7 +97,7 @@ def volver_menu_version2(opcion_volver_menu):
     while True:
 
         if opcion_volver_menu.isdigit():
-            if int(opcion_volver_menu) == 3:
+            if int(opcion_volver_menu) == k:
                 e()
                 iniciador("Regresando al menú principal, espere por favor",'',2)
                 break
@@ -181,6 +193,16 @@ def es_fecha_valida(fecha):
                 return False
     else:
         return False
+def grafico_circular(mes,dic):
+    bool=False
+    for i in dic[mes].keys():
+        if dic[mes][i]>0:
+           bool=True
+           break
+    return bool
+
+
+
 
 def Separadores(texto):
     '''

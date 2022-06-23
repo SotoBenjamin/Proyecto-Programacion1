@@ -24,6 +24,7 @@ cryptos_mes={
 "Noviembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
 "Diciembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
 } #diccionario de inversiones por moneda y mes
+data1=pd.DataFrame(cryptos_mes)
 mes=""
 moneda=""
 # Inicio del código while
@@ -181,11 +182,101 @@ while True:
                    volver_menu_lista_activos()
 
                if int(opcion_lista_activos) == 2:
-                   print(data1.head())
-                   volver_menu_lista_activos()
+                   while True:
+                       Separadores("Estadisticas Mensuales")
+                       e()
+                       e()
+                       print("1. Cryptos en Enero")
+                       print("2. Cryptos en Febrero")
+                       print("3. Cryptos en Marzo")
+                       print("4. Cryptos en Abril")
+                       print("5. Cryptos en Mayo")
+                       print("6. Cryptos en Junio")
+                       print("7. Cryptos en Julio")
+                       print("8. Cryptos en Agosto")
+                       print("9. Cryptos en Septiembre")
+                       print("10. Cryptos en Octubre")
+                       print("11. Cryptos en Diciembre")
+                       print("12. Cryptos en Abril")
+                       print("13.Volver a La lista de activos digitales")
+                       e()
+                       e()
+                       while True:
+                           opcion_estadisticas_mensuales = input("Ingrese una opcion:")
+                           if opcion_estadisticas_mensuales.isdigit():
+                               if 1 <= int(opcion_estadisticas_mensuales) <= 13:
+                                   break
+                       if int(opcion_estadisticas_mensuales)==1:
+
+                           
+                              Separadores("Se muestra el gráfico de barras para el mes de Enero")
+                              data1["Enero"].plot(kind="barh")
+                              plt.show()
+                              volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==2:
+                           Separadores("Se muestra el gráfico de barras para el mes de Febrero")
+                           data1["Febrero"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==3:
+                           Separadores("Se muestra el gráfico de barras para el mes de Marzo")
+                           data1["Marzo"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==4:
+                           Separadores("Se muestra el gráfico de barras para el mes de Abril")
+                           data1["Abril"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales) == 5:
+                           Separadores("Se muestra el gráfico de barras para el mes de Mayo")
+                           data1["Mayo"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales) == 6:
+                           Separadores("Se muestra el gráfico de barras para el mes de Junio")
+                           data1["Junio"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales) == 7:
+                           Separadores("Se muestra el gráfico de barras para el mes de Julio")
+                           data1["Julio"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==8:
+                           Separadores("Se muestra el gráfico de barras para el mes de Agosto")
+                           data1["Agosto"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==9:
+                           Separadores("Se muestra el gráfico de barras para el mes de Septiembre")
+                           data1["Septiembre"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==10:
+                           Separadores("Se muestra el gráfico de barras para el mes de Octubre")
+                           data1["Octubre"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==11:
+                           Separadores("Se muestra el gráfico de barras para el mes de  Noviembre")
+                           data1["Noviembre"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==12:
+                           Separadores("Se muestra el gráfico de barras para el mes de Diciembre")
+                           data1["Diciembre"].plot(kind="barh")
+                           plt.show()
+                           volver_menu_Estadisticas_mensuales()
+                       if int(opcion_estadisticas_mensuales)==13:
+                           iniciador("Volviendo a La lista de activos digitales", "Operación realizada con éxito")
+                           break
+
+
 
                if int(opcion_lista_activos) == 3:
-                   volver_menu_version2("3")
+                   iniciador("Volviendo al Menú Principal","Operación realizada con éxito")
+                   break
 
                print(63 * "-")
 

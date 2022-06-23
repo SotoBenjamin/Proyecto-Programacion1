@@ -1,44 +1,34 @@
-def es_fecha_valida(fecha):
-    '''
-    Esta función valida si la fecha es correcta.
-    Para ello corrobora que la fecha tenga el formato dd/mm/yyyy.
-    Además, corrobora que tanto el día, mes y año sean valores coherentes considerando años bisiestos
-    '''
+from funciones import *
+import pandas as pd
+import matplotlib.pyplot as plt
+import plotly as plot
+cryptos_mes={
+"Enero":{"Bitcoin":600 , "Etherium":900 , "Dogecoin":300 ,"Binance":400},
+"Febrero":{"Bitcoin":230 , "Etherium":500 , "Dogecoin":700 ,"Binance":200},
+"Marzo":{"Bitcoin":1000 , "Etherium":340 , "Dogecoin":3450 ,"Binance":2540},
+"Abril":{"Bitcoin":900 , "Etherium":600 , "Dogecoin":3450 ,"Binance":3450},
+"Mayo":{"Bitcoin":100 , "Etherium":200 , "Dogecoin":300 ,"Binance":400},
+"Junio":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Julio":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Agosto":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Septiembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Octubre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Noviembre":{"Bitcoin":0 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+"Diciembre":{"Bitcoin":100 , "Etherium":0 , "Dogecoin":0 ,"Binance":0},
+}
+print()
+data=pd.DataFrame(cryptos_mes)
+print(data)
 
-    bool = 0
-    veredicto = False
-    if "/" in fecha:
-        if len(fecha) == 10:
-            bool += 1
-        lista = fecha.split("/")
-        if lista[0].isdigit() and lista[1].isdigit() and lista[2].isdigit():
-            bool += 1
-            if len(lista[0]) == 2 and len(lista[1]) == 2 and len(lista[2]) == 4:
-                bool += 1
-            dia = int(lista[0])
-            mes = int(lista[1])
-            anio = int(lista[2])
-            if mes in [1, 3, 5, 7, 8, 10, 12]:
-                if 1 <= dia <= 31:
-                    bool += 1
-            if mes in [4, 6, 9, 11]:
-                if 1 <= dia <= 30:
-                    bool += 1
-            if mes == 2:
-                if anio % 4 == 0 and (anio % 100 != 0 or anio % 400 == 0):
-                    if 1 <= dia <= 29:
-                        bool += 1
-                else:
-                    if 1 <= dia <= 28:
-                        bool += 1
-            if anio >= 1800:
-                bool += 1
-            if bool == 5:
-                return True
-            if bool != 5:
-                return False
-    else:
-        return False
 
-fecha_inversion="29/02/2022"
-print(es_fecha_valida(fecha_inversion))
+print(grafico_circular("Noviembre",cryptos_mes))
+
+#bitcoin=data.iloc[[0],:]
+#print(bitcoin)
+#datos_enero.plot.pie()
+#plt.show()
+#datos_enero.plot.barh()
+#plt.show()
+
+data["Noviembre"].plot(kind="pie")
+plt.show()
