@@ -1,6 +1,7 @@
 # Lugar para poner los import
 from funciones import *
-
+import pandas as pd
+import matplotlib.pyplot as plt
 iniciador('Iniciando programa del servidor','Carga con exito.')
 e()
 
@@ -9,7 +10,9 @@ opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
 t = 1
 lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
-
+cryptos_mes={} #diccionario de inversiones por moneda y mes
+mes=""
+moneda=""
 # Inicio del código while
 while True:
     Separadores("FONDOS MUTUOS CRYPTO")
@@ -59,6 +62,7 @@ while True:
                 break
         time.sleep(0.5)
         e()
+
         print("Criptomoneda a comprar:")
         print("1. Bitcoin")
         print("2. Etherium")
@@ -68,9 +72,52 @@ while True:
         # Función para seleccionar una opcion
         opcion_cripto = seleccion_de_opcion("Seleccione una opcion: ")
         e()
-
+        if int(opcion_cripto)==1:
+            moneda="Bitcoin"
+        if int(opcion_cripto)==2:
+            moneda="Etherium"
+        if int(opcion_cripto)==3:
+            moneda="Dogecoin"
+        if int(opcion_cripto)==4:
+            moneda="Binance"
         # Datos a almacenar en las matrices
         monto_inversion = monto_de_inversion()
+
+        #Llenando el diccionario  cryptos_mes
+        mes_num=int(fecha_inversion.split("/")[1])
+        if mes_num==1:
+            mes="Enero"
+        if mes_num==2:
+            mes="Febrero"
+        if mes_num==3:
+            mes="Marzo"
+        if mes_num==4:
+            mes="Abril"
+        if mes_num==5:
+            mes="Mayo"
+        if mes_num==6:
+            mes="Junio"
+        if mes_num==7:
+            mes="Julio"
+        if mes_num==8:
+            mes="Agosto"
+        if mes_num==9:
+            mes="Septiembre"
+        if mes_num==10:
+            mes="Octubre"
+        if mes_num==11:
+            mes="Noviembre"
+        if mes_num==12:
+            mes="Diciembre"
+        if moneda not in cryptos_mes.keys():
+           cryptos_mes[moneda]={}
+        if mes not in cryptos_mes[moneda].keys():
+            cryptos_mes[moneda][mes]=0
+        cryptos_mes[moneda][mes] += int(monto_inversion)
+        data_cryptos=pd.DataFrame(cryptos_mes)
+        #cryptos_mes[mes]+=monto_inversion
+
+
         lista_socios[0].append(nombre)
         lista_socios[1].append("User" + str(t))
         lista_socios[3].append(str(monto_inversion))
@@ -122,7 +169,7 @@ while True:
                 print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
                 print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
         if int(opcion_lista_activos) == 2:
-            print("investigar histograma de inversion por mes de las monedas")
+                print(data_cryptos)
         if int(opcion_lista_activos) == 3:
             volver_menu_version2("3")
 

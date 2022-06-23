@@ -1,6 +1,7 @@
 import re
 import time
-import matplotlib as plt
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def transponer(matrix):
@@ -134,42 +135,39 @@ def es_fecha_valida(fecha):
     '''
 
     bool = 0
-    veredicto = False
+
     if "/" in fecha:
         if len(fecha) == 10:
             bool += 1
         lista = fecha.split("/")
-        if lista.count("/") == 2:
-            if lista[0].isdigit() and lista[1].isdigit() and lista[2].isdigit():
+        if lista[0].isdigit() and lista[1].isdigit() and lista[2].isdigit():
+            bool += 1
+            if len(lista[0]) == 2 and len(lista[1]) == 2 and len(lista[2]) == 4:
                 bool += 1
-                if len(lista[0]) == 2 and len(lista[1]) == 2 and len(lista[2]) == 4:
+            dia = int(lista[0])
+            mes = int(lista[1])
+            anio = int(lista[2])
+            if mes in [1, 3, 5, 7, 8, 10, 12]:
+                if 1 <= dia <= 31:
                     bool += 1
-                dia = int(lista[0])
-                mes = int(lista[1])
-                anio = int(lista[2])
-                if mes in [1, 3, 5, 7, 8, 10, 12]:
-                    if 1 <= dia <= 31:
-                        bool += 1
-                if mes in [4, 6, 9, 11]:
-                    if 1 <= dia <= 30:
-                        bool += 1
-                if mes == 2:
-                    if anio % 4 == 0 and (anio % 100 != 0 or anio % 400 == 0):
-                        if 1 <= dia <= 29:
-                            bool += 1
-                    else:
-                        if 1 <= dia <= 28:
-                            bool += 1
-                if anio >= 1800:
+            if mes in [4, 6, 9, 11]:
+                if 1 <= dia <= 30:
                     bool += 1
-                if bool == 5:
-                    veredicto = True
-                if bool != 5:
-                    veredicto = False
-            return veredicto
+            if mes == 2:
+                if anio % 4 == 0 and (anio % 100 != 0 or anio % 400 == 0):
+                    if 1 <= dia <= 29:
+                        bool += 1
+                else:
+                    if 1 <= dia <= 28:
+                        bool += 1
+            if anio >= 1800:
+                bool += 1
+            if bool == 5:
+                return True
+            if bool != 5:
+                return False
     else:
-        return veredicto
-
+        return False
 
 def Separadores(texto):
     '''
