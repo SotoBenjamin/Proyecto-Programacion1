@@ -64,6 +64,19 @@ def volver_menu():
                 iniciador("Regresando al menú principal, espere por favor",'',2)
                 break
 
+def volver_menu_lista_activos():
+    '''
+    Funcion para volver al menú
+    '''
+
+    while True:
+        opcion_volver_menu = input("Ingrese 0 para regresar al menu principal: ")
+        if opcion_volver_menu.isdigit():
+            if int(opcion_volver_menu) == 0:
+                e()
+                iniciador("Regresando a la Lista de activos digitales, espere por favor",'',2)
+                break
+
 def volver_menu_version2(opcion_volver_menu):
     '''
     Funcion para volver al menú

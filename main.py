@@ -161,31 +161,35 @@ while True:
 
     #Opcion 2
     if int(opcion) == 2:
+           while True:
+               Separadores("Lista de activos digitales")
 
-        Separadores("Lista de activos digitales")
+               print("1. Tabla de inversiones")
+               print("2. Estadisticas mensuales")
+               print("3. Regresar al menú principal")
+               e()
+               while True:
+                   opcion_lista_activos = input("Ingrese una opcion:")
+                   if opcion_lista_activos.isdigit():
+                       if 1 <= int(opcion_lista_activos) <= 3:
+                           break
+               if int(opcion_lista_activos) == 1:
+                   print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
+                   print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
+                   print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
+                   print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
+                   volver_menu_lista_activos()
 
-        print("1. Tabla de inversiones")
-        print("2. Estadisticas mensuales")
-        print("3. Regresar al menú principal")
-        e()
-        while True:
-            opcion_lista_activos = input("Ingrese una opcion:")
-            if opcion_lista_activos.isdigit():
-                if 1<= int(opcion_lista_activos) <=3:
-                    break
-        if int(opcion_lista_activos) == 1:
-                print("El fondo mutuo en Bitcoin es:", montos_de_criptomoneda[0])
-                print("El fondo mutuo en Etherium es:", montos_de_criptomoneda[1])
-                print("El fondo mutuo en Dogecoin es:", montos_de_criptomoneda[2])
-                print("El fondo mutuo en Binance es:", montos_de_criptomoneda[3])
-        if int(opcion_lista_activos) == 2:
-                print(data1.head())
-        if int(opcion_lista_activos) == 3:
-            volver_menu_version2("3")
+               if int(opcion_lista_activos) == 2:
+                   print(data1.head())
+                   volver_menu_lista_activos()
 
-        print(63*"-")
+               if int(opcion_lista_activos) == 3:
+                   volver_menu_version2("3")
 
-        e()
+               print(63 * "-")
+
+               e()
 
     #Opción 3
     if int(opcion) == 3:
