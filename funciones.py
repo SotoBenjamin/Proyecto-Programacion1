@@ -1,10 +1,15 @@
 import re
 import time
+<<<<<<< Updated upstream
 # <<<<<<< Updated upstream
 import pandas as pd
 # =======
 # >>>>>>> Stashed changes
 # import matplotlib.pyplot as plt
+=======
+import pandas as pd
+import matplotlib.pyplot as plt
+>>>>>>> Stashed changes
 
 
 def transponer(matrix):

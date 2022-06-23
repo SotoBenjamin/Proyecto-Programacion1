@@ -209,66 +209,145 @@ while True:
                                    break
                        if int(opcion_estadisticas_mensuales)==1:
 
-                           
-                              Separadores("Se muestra el gráfico de barras para el mes de Enero")
+                           if grafico_circular("Enero",cryptos_mes):
+                              Separadores("Se muestra el gráfico circular y de barras para el mes de Enero")
                               data1["Enero"].plot(kind="barh")
                               plt.show()
-                              volver_menu_Estadisticas_mensuales()
+                              data1["Enero"].plot(kind="pie")
+                              plt.show()
+                           else:
+                              print("No hay datos ingresados para este mes")
+                           volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales)==2:
-                           Separadores("Se muestra el gráfico de barras para el mes de Febrero")
-                           data1["Febrero"].plot(kind="barh")
-                           plt.show()
+
+                           if grafico_circular("Febrero",cryptos_mes):
+                              Separadores("Se muestra el gráfico de barras para el mes de Febrero")
+                              data1["Febrero"].plot(kind="barh")
+                              plt.show()
+                              data1["Febrero"].plot(kind="pie")
+                              plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales)==3:
-                           Separadores("Se muestra el gráfico de barras para el mes de Marzo")
-                           data1["Marzo"].plot(kind="barh")
-                           plt.show()
+
+                           if grafico_circular("Marzo",cryptos_mes):
+                               Separadores("Se muestra el gráfico de barras para el mes de Marzo")
+                               data1["Marzo"].plot(kind="barh")
+                               plt.show()
+                               data1["Marzo"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales)==4:
-                           Separadores("Se muestra el gráfico de barras para el mes de Abril")
-                           data1["Abril"].plot(kind="barh")
-                           plt.show()
+                           if grafico_circular("Abril",cryptos_mes):
+                               Separadores("Se muestra el gráfico de barras para el mes de Abril")
+                               data1["Abril"].plot(kind="barh")
+                               plt.show()
+                               data1["Abril"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
+
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales) == 5:
-                           Separadores("Se muestra el gráfico de barras para el mes de Mayo")
-                           data1["Mayo"].plot(kind="barh")
-                           plt.show()
+
+                           if grafico_circular("Mayo",cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Mayo")
+                               data1["Mayo"].plot(kind="barh")
+                               plt.show()
+                               data1["Mayo"].plot(kind="pie")
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales) == 6:
-                           Separadores("Se muestra el gráfico de barras para el mes de Junio")
-                           data1["Junio"].plot(kind="barh")
-                           plt.show()
+
+                           if grafico_circular("Junio",cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Junio")
+                               data1["Junio"].plot(kind="barh")
+                               plt.show()
+                               data1["Junio"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales) == 7:
-                           Separadores("Se muestra el gráfico de barras para el mes de Julio")
-                           data1["Julio"].plot(kind="barh")
-                           plt.show()
+
+                           if grafico_circular("Julio",cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Julio")
+                               data1["Julio"].plot(kind="barh")
+                               plt.show()
+                               data1["Julio"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
-                       if int(opcion_estadisticas_mensuales)==8:
-                           Separadores("Se muestra el gráfico de barras para el mes de Agosto")
-                           data1["Agosto"].plot(kind="barh")
-                           plt.show()
+
+                       if int(opcion_estadisticas_mensuales) == 8:
+
+                           if grafico_circular("Agosto",cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Agosto")
+                               data1["Agosto"].plot(kind="barh")
+                               plt.show()
+                               data1["Mayo"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
-                       if int(opcion_estadisticas_mensuales)==9:
-                           Separadores("Se muestra el gráfico de barras para el mes de Septiembre")
-                           data1["Septiembre"].plot(kind="barh")
-                           plt.show()
+
+
+                       if int(opcion_estadisticas_mensuales) == 9:
+
+                           if grafico_circular("Septiembre", cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Septiembre")
+                               data1["Septiembre"].plot(kind="barh")
+                               plt.show()
+                               data1["Septiembre"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
-                       if int(opcion_estadisticas_mensuales)==10:
-                           Separadores("Se muestra el gráfico de barras para el mes de Octubre")
-                           data1["Octubre"].plot(kind="barh")
-                           plt.show()
+
+                       if int(opcion_estadisticas_mensuales) == 10:
+                           if grafico_circular("Octubre", cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Octubre")
+                               data1["Octubre"].plot(kind="barh")
+                               plt.show()
+                               data1["Octubre"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
-                       if int(opcion_estadisticas_mensuales)==11:
-                           Separadores("Se muestra el gráfico de barras para el mes de  Noviembre")
-                           data1["Noviembre"].plot(kind="barh")
-                           plt.show()
+
+                       if int(opcion_estadisticas_mensuales) == 11:
+                           if grafico_circular("Noviembre", cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Noviembre")
+                               data1["Noviembre"].plot(kind="barh")
+                               plt.show()
+                               data1["Noviembre"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
-                       if int(opcion_estadisticas_mensuales)==12:
-                           Separadores("Se muestra el gráfico de barras para el mes de Diciembre")
-                           data1["Diciembre"].plot(kind="barh")
-                           plt.show()
+
+                       if int(opcion_estadisticas_mensuales) == 12:
+                           if grafico_circular("Diciembre", cryptos_mes):
+                               Separadores("Se muestra el gráfico circular y de barras para el mes de Diciembre")
+                               data1["Diciembre"].plot(kind="barh")
+                               plt.show()
+                               data1["Diciembre"].plot(kind="pie")
+                               plt.show()
+                           else:
+                               print("No hay datos para este mes")
                            volver_menu_Estadisticas_mensuales()
+
                        if int(opcion_estadisticas_mensuales)==13:
                            iniciador("Volviendo a La lista de activos digitales", "Operación realizada con éxito")
                            break
