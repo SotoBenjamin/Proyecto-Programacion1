@@ -2,9 +2,7 @@
 from funciones import *
 import pandas as pd
 import matplotlib.pyplot as plt
-iniciador('Iniciand'
-          ''
-          'o programa del servidor','Carga con exito.')
+iniciador('Iniciando programa del servidor','Carga con exito.')
 e()
 
 # Variables generales
