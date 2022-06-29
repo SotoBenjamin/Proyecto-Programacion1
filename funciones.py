@@ -189,7 +189,7 @@ def es_fecha_valida(fecha):
 
     bool = 0
 
-    if "/" in fecha:
+    if fecha.count("/") == 2:
         if len(fecha) == 10:
             bool += 1
         lista = fecha.split("/")
