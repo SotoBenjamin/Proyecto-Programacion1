@@ -91,6 +91,32 @@ def volver_menu_Estadisticas_mensuales():
                 iniciador("Regresando a las Estadisticas Mensuales, espere por favor",'',2)
                 break
 
+def volver_menu_socios():
+    '''
+    Funcion para volver al menú
+    '''
+
+    while True:
+        opcion_volver_menu_socios = input("Ingrese 0 para regresar a las opciones de lista de socios: ")
+        if opcion_volver_menu_socios.isdigit():
+            if int(opcion_volver_menu_socios) == 0:
+                e()
+                iniciador("Regresando a las opciones de lista de socios, espere por favor",'',2)
+                break
+
+def volver_menu_socios_mensuales():
+    '''
+    Funcion para volver al menú
+    '''
+
+    while True:
+        opcion_volver_menu_socios_mesuales = input("Ingrese 0 para regresar a las estadisticas de socios mensuales: ")
+        if opcion_volver_menu_socios_mesuales.isdigit():
+            if int(opcion_volver_menu_socios_mesuales) == 0:
+                e()
+                iniciador("Regresando a las estadisticas de socios mensuales, espere por favor",'',2)
+                break
+
 def volver_menu_version2(opcion_volver_menu,k):
     '''
     Funcion para volver al menú
