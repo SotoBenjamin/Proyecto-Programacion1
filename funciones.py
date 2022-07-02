@@ -2,6 +2,8 @@ import re
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
+import pandas_datareader.data as web
+from datetime import datetime, timedelta
 
 
 
@@ -64,6 +66,7 @@ def volver_menu():
                 iniciador("Regresando al menú principal, espere por favor",'',2)
                 break
 
+
 def volver_menu_lista_activos():
     '''
     Funcion para volver al menú
@@ -91,6 +94,7 @@ def volver_menu_Estadisticas_mensuales():
                 iniciador("Regresando a las Estadisticas Mensuales, espere por favor",'',2)
                 break
 
+
 def volver_menu_socios():
     '''
     Funcion para volver al menú
@@ -104,6 +108,7 @@ def volver_menu_socios():
                 iniciador("Regresando a las opciones de lista de socios, espere por favor",'',2)
                 break
 
+
 def volver_menu_socios_mensuales():
     '''
     Funcion para volver al menú
@@ -116,6 +121,7 @@ def volver_menu_socios_mensuales():
                 e()
                 iniciador("Regresando a las estadisticas de socios mensuales, espere por favor",'',2)
                 break
+
 
 def volver_menu_version2(opcion_volver_menu,k):
     '''
@@ -231,6 +237,7 @@ def grafico_circular(mes,dic):
            break
     return bool
 
+
 def validar_estadistica_anual(diccionario):
     bool=False
     for i in diccionario.keys():
@@ -239,7 +246,6 @@ def validar_estadistica_anual(diccionario):
                 bool=True
                 break
     return bool
-
 
 
 def Separadores(texto):
@@ -273,3 +279,37 @@ def iniciador(texto1,texto2,switch=1):
     if switch == 1:
         print('\t' * 4, texto2)
         time.sleep(0.3)
+
+
+def estado_de_inversion(moneda, fecha, inversion):
+    # Para obtener el tipo de moneda
+    codigo = ""
+    if moneda == "Bitcoin":
+        codigo = "BTC-USD"
+    elif moneda == "Etherium":
+        codigo = "ETH-USD"
+    elif moneda == "Dogecoin":
+        codigo = "DOGE-USD"
+    elif moneda == "Binance":
+        codigo = "BNB-USD"
+
+    # Para obetener la fecha del precio de compra
+    lista = fecha.split("/")
+    tupla = (lista[2], lista[1], lista[0])
+    fecha_compra = "-".join(tupla)
+
+    # Para obtener la fecha del precio de venta
+    now = datetime.now()
+    new_date = now + timedelta(days=-1)
+    fecha_venta = str(new_date.date())
+
+    # Extracción de las crypto
+    data = web.DataReader(codigo, data_source="yahoo", start="2021-06-01")
+    data = data.iloc[:, 3]
+
+    precio_compra = data[fecha_compra]
+    precio_venta = data[fecha_venta]
+
+    dinero_actual = inversion*precio_venta/precio_compra
+
+    return dinero_actual

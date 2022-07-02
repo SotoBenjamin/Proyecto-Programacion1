@@ -601,7 +601,18 @@ while True:
 
     # Opción 6 - Estado de inversiones
     if int(opcion) == 6:
-        print("Estado de inversiones")
+        Separadores("Estado de inversiones")
+        e()
+
+        usuario = input("Ingrese su nombre: ")
+        for i in range(len(lista_socios[0])):
+            print(i)
+
+
+        iniciador("Cargando datos", "")
+
+
+        # print(estado_de_inversion("Bitcoin", "15/06/2022", 10000))
         volver_menu()
 
     # Opción 7 - Salir
