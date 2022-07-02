@@ -6,8 +6,9 @@ e()
 # Variables generales
 opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
+ganancia_total_fondo_mutuo = 0
 t = 1
-lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"], ["Fecha"]]
+lista_socios = [["Nombre", "Jeffrey", "Juan", "Pablo"], ["Codigo", "User1", "User2", "User3"], ["Moneda", "Bitcoin", "Etherium", "Dogecoin"], ["Monto", 10000, 10000, 10000], ["Fecha", "18/06/2022", "18/06/2022", "18/06/2022"]]
 cryptos_mes = {
     "Enero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
     "Febrero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
@@ -621,26 +622,50 @@ while True:
                 user_moneda = lista_socios[2][result[1]]
                 user_inversion = int(lista_socios[3][result[1]])
                 user_fecha = lista_socios[4][result[1]]
-                user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
 
                 print(f"Bienvenido, {lista_socios[0][result[1]]}")
-                time.sleep(1)
                 e()
+                user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
+
                 print(f"Su dinero invertido inicialmente fue: {user_inversion} dólares")
-                time.sleep(1)
-                e()
-                print(f"Su dinero actual es: {round(user_dinero_actual,3)} dólares")
+                print(f"La moneda invertida es: {user_moneda}")
                 time.sleep(1)
                 e()
 
                 if user_dinero_actual > user_inversion:
-                    print("Hubo ganancias")
+                    print("Estado: Hubo ganancias")
                     ganancia = user_dinero_actual - user_inversion
-                    print(f"Se ganó {round(ganancia,3)} dólares")
+                    print(f"Se ganó {round(ganancia, 3)} dólares")
+                    time.sleep(1)
+
+                    comision = (1 / 100) * ganancia
+                    user_ganancia = user_dinero_actual - comision
+                    print(f"Su dinero actual es: {round(user_ganancia, 3)} dólares")
                 else:
-                    print("Hubo pérdidas")
+                    print("Estado: Hubo pérdidas")
                     perdida = user_inversion - user_dinero_actual
-                    print(f"Se perdió {round(perdida,3)} dólares")
+                    print(f"Se perdió {round(perdida, 3)} dólares")
+                    time.sleep(1)
+
+                    print(f"Su dinero actual es: {round(user_dinero_actual, 3)} dólares")
+                e()
+
+                iniciador("Calculando la ganancia total del fondo mutuo", "", 0)
+                e()
+
+                for i in range(1, len(lista_socios[3])):
+                    user_moneda = lista_socios[2][i]
+                    user_inversion = int(lista_socios[3][i])
+                    user_fecha = lista_socios[4][i]
+
+                    user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
+
+                    if user_dinero_actual > user_inversion:
+                        ganancia = user_dinero_actual - user_inversion
+                        comision = (1 / 100) * ganancia
+                        ganancia_total_fondo_mutuo += comision
+
+                print(f"Ganancia del fondo mutuo: {round(ganancia_total_fondo_mutuo,3)}")
                 e()
                 break
             else:
