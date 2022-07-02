@@ -1,15 +1,14 @@
 # Lugar para poner los import
 from funciones import *
-import pandas as pd
-import matplotlib.pyplot as plt
 iniciador('Iniciando programa del servidor', 'Carga con exito.')
 e()
 
 # Variables generales
 opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
+ganancia_total_fondo_mutuo = 0
 t = 1
-lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
+lista_socios = [["Nombre", "Jeffrey", "Juan", "Pablo"], ["Codigo", "User1", "User2", "User3"], ["Moneda", "Bitcoin", "Etherium", "Dogecoin"], ["Monto", 10000, 10000, 10000], ["Fecha", "18/06/2022", "18/06/2022", "18/06/2022"]]
 cryptos_mes = {
     "Enero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
     "Febrero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
@@ -91,6 +90,7 @@ while True:
         while True:
             fecha_inversion = input("Ingrese la fecha: ")
             if es_fecha_valida(fecha_inversion):
+                lista_socios[4].append(fecha_inversion)
                 break
         time.sleep(0.5)
         e()
@@ -149,7 +149,8 @@ while True:
         data2 = pd.DataFrame(socio_cryptos_mes)
 
         lista_socios[0].append(nombre)
-        lista_socios[1].append("User" + str(t))
+        user = "User" + str(t)
+        lista_socios[1].append(user)
         lista_socios[3].append(str(monto_inversion))
         t += 1
 
@@ -171,6 +172,10 @@ while True:
 
         e()
         iniciador('Guardando informacion', 'Informacion guardada.')
+        e()
+
+        print(f"Su código de usuario es: {user}")
+        time.sleep(2)
         e()
 
         Separadores("Fin de registro")
@@ -406,10 +411,11 @@ while True:
             if int(opcion_lista_socios) == 1:
                 # transpuesta
                 lista_transpuesta_socios = transponer(lista_socios)[:]
+                lista_nueva = np.array(lista_transpuesta_socios)
 
                 # IMPRESION DE MATRIZ
-                imprimir(lista_transpuesta_socios)
-                # IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
+                imprimir(lista_nueva[:,:4])
+
                 e()
                 volver_menu_socios()
             if int(opcion_lista_socios) == 2:
@@ -601,7 +607,71 @@ while True:
 
     # Opción 6 - Estado de inversiones
     if int(opcion) == 6:
-        print("Estado de inversiones")
+        Separadores("Estado de inversiones")
+        e()
+
+        ## Crear un While True hasta que encuentre el nombre
+        while True:
+            usuario = input("Ingrese el codigo de usuario: ")
+
+            result = busqueda_lineal(lista_socios[1], usuario)
+            if result[0]:
+                iniciador("Buscando usuario", "Usuario encontrado")
+                e()
+                # Variables del usuario
+                user_moneda = lista_socios[2][result[1]]
+                user_inversion = int(lista_socios[3][result[1]])
+                user_fecha = lista_socios[4][result[1]]
+
+                print(f"Bienvenido, {lista_socios[0][result[1]]}")
+                e()
+                user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
+
+                print(f"Su dinero invertido inicialmente fue: {user_inversion} dólares")
+                print(f"La moneda invertida es: {user_moneda}")
+                time.sleep(1)
+                e()
+
+                if user_dinero_actual > user_inversion:
+                    print("Estado: Hubo ganancias")
+                    ganancia = user_dinero_actual - user_inversion
+                    print(f"Se ganó {round(ganancia, 3)} dólares")
+                    time.sleep(1)
+
+                    comision = (1 / 100) * ganancia
+                    user_ganancia = user_dinero_actual - comision
+                    print(f"Su dinero actual es: {round(user_ganancia, 3)} dólares")
+                else:
+                    print("Estado: Hubo pérdidas")
+                    perdida = user_inversion - user_dinero_actual
+                    print(f"Se perdió {round(perdida, 3)} dólares")
+                    time.sleep(1)
+
+                    print(f"Su dinero actual es: {round(user_dinero_actual, 3)} dólares")
+                e()
+
+                iniciador("Calculando la ganancia total del fondo mutuo", "", 0)
+                e()
+
+                for i in range(1, len(lista_socios[3])):
+                    user_moneda = lista_socios[2][i]
+                    user_inversion = int(lista_socios[3][i])
+                    user_fecha = lista_socios[4][i]
+
+                    user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
+
+                    if user_dinero_actual > user_inversion:
+                        ganancia = user_dinero_actual - user_inversion
+                        comision = (1 / 100) * ganancia
+                        ganancia_total_fondo_mutuo += comision
+
+                print(f"Ganancia del fondo mutuo: {round(ganancia_total_fondo_mutuo,3)}")
+                e()
+                break
+            else:
+                iniciador("Buscando usuario", "Usuario no encontrado")
+                e()
+
         volver_menu()
 
     # Opción 7 - Salir

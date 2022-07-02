@@ -1,60 +1,104 @@
-#import re
+import pandas as pd
+import pandas_datareader.data as web
+from datetime import datetime, timedelta
 
-#def es_correo_valido(correo):
-#    """
-#    Usar expresiones regulares para ver si es un correo electrónico válido en Python
-#    Recuerda importar el módulo re
+# fecha = "01/06/2022"
+# lista = fecha.split("/")
+# tupla = (lista[2], lista[1], lista[0])
+# fecha_compra = "-".join(tupla)
 #
-#    Una expresión regular más precisa es:
-#    r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])"
-#    """
+# print(fecha_compra)
 
-#    expresion_regular = r'[a-z0-9\-_.]+[@][a-z\-_.]+[.][a-z]{2,3}'
+# Instalar pandas_datareader
+# import pip
+# pip.main(['install', 'pandas_datareader'])
 
-#    return re.match(expresion_regular, correo) is not None
+# Buscar la información de la moneda
+"""
+BITCOIN = BTC-USD
+ETHERIUM = ETH-USD
+DOGECOIN = DOGE-USD
+BINANCE = BNB-USD
+"""
+
+data = web.DataReader("BTC-USD", data_source="yahoo", start="2021-06-01")
+
+
+# Utilizar solo el precio de cierre de la moneda
+data = data.iloc[:, 3]
+
+# Precio de compra
+precio_compra = data["2022-06-10"]
+print("Precio de compra:", precio_compra)
+
+# Precio de venta (siempre es el día anterior al actual)
+precio_venta = data["2022-07-01"]
+print("Precio de venta:", precio_venta)
+
+# Inversión
+invirtio = 10000
+print("Inversión:", invirtio)
+
+# Dinero_actual con la fórmula
+"""
+            Dinero      Valor de la crypto en determinado dia
+Compra:    Inversion             precio_de_compra
+Venta:        x                   precio_de_venta
+
+Fórmula:
+        x = Inversion*precio_de_venta/precio de compra
+"""
+
+dinero_actual = invirtio*precio_venta/precio_compra
+
+print("Dinero actual:", dinero_actual)
+
+# Ganancias o pérdidas
+if dinero_actual > invirtio:
+    print("Hubo ganancias")
+    ganancia = dinero_actual - invirtio
+    print("Se ganó", ganancia)
+else:
+    print("Hubo pérdidas")
+    perdida = invirtio - dinero_actual
+    print("Se perdió", perdida)
 
 
 
+def estado_de_inversion(moneda, fecha, inversion):
+    # Para obtener el tipo de moneda
+    codigo = ""
+    if moneda == "Bitcoin":
+        codigo = "BTC-USD"
+    elif moneda == "Etherium":
+        codigo = "ETH-USD"
+    elif moneda == "Dogecoin":
+        codigo = "DOGE-USD"
+    elif moneda == "Binance":
+        codigo = "BNB-USD"
 
-#cadena=input("correo:")
-#print(es_correo_valido(cadena))
+    # Para obetener la fecha del precio de compra
+    lista = fecha.split("/")
+    tupla = (lista[2], lista[1], lista[0])
+    fecha_compra = "-".join(tupla)
 
-def es_fecha_valida(fecha):
-    bool = 0
-    veredicto = False
-    if len(fecha) == 10:
-        bool+=1
-    lista=fecha.split("/")
-    if lista[0].isdigit() and lista[1].isdigit() and lista[2].isdigit():
-        bool+=1
-        if len(lista[0]) == 2 and len(lista[1]) == 2 and len(lista[2]) == 4:
-            bool+=1
-        dia = int(lista[0])
-        mes = int(lista[1])
-        anio = int(lista[2])
-        if mes == (1 or 3 or 5 or 7 or 8 or 10 or 12):
-            if 1 <= dia <= 31:
-                bool+=1
-        if mes == (4 or 6 or 9 or 11):
-            if 1 <= dia <= 30:
-                bool+=1
-        if mes == 2:
-            if anio % 4 == 0 and (anio % 100 !=0 or anio % 400 == 0):
-                if 1 <= dia <= 29:
-                    bool+=1
-            else:
-                if 1 <= dia <= 28:
-                    bool+=1
-        if anio >=1800:
-            bool+=1
-        if bool==5:
-            veredicto = True
-        if bool!=5:
-            veredicto = False
-    return veredicto
+    # Para obtener la fecha del precio de venta
+    now = datetime.now()
+    new_date = now + timedelta(days=-1)
+    fecha_venta = str(new_date.date())
 
-while True:
-    fecha = input("fecha:")
-    print(es_fecha_valida(fecha))
-    if es_fecha_valida(fecha):
-        break
+    # Extracción de las crypto
+    data = web.DataReader(codigo, data_source="yahoo", start="2021-06-01")
+    data = data.iloc[:, 3]
+
+    precio_compra = data[fecha_compra]
+    precio_venta = data[fecha_venta]
+
+    dinero_actual = inversion*precio_venta/precio_compra
+
+    return dinero_actual
+
+
+# print(estado_de_inversion("Bitcoin","03/06/2022",10000))
+
+
