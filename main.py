@@ -1,7 +1,5 @@
 # Lugar para poner los import
 from funciones import *
-import pandas as pd
-import matplotlib.pyplot as plt
 iniciador('Iniciando programa del servidor', 'Carga con exito.')
 e()
 
@@ -9,7 +7,7 @@ e()
 opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
 t = 1
-lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"]]
+lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"], ["Fecha"]]
 cryptos_mes = {
     "Enero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
     "Febrero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
@@ -91,6 +89,7 @@ while True:
         while True:
             fecha_inversion = input("Ingrese la fecha: ")
             if es_fecha_valida(fecha_inversion):
+                lista_socios[4].append(fecha_inversion)
                 break
         time.sleep(0.5)
         e()
@@ -149,7 +148,8 @@ while True:
         data2 = pd.DataFrame(socio_cryptos_mes)
 
         lista_socios[0].append(nombre)
-        lista_socios[1].append("User" + str(t))
+        user = "User" + str(t)
+        lista_socios[1].append(user)
         lista_socios[3].append(str(monto_inversion))
         t += 1
 
@@ -171,6 +171,10 @@ while True:
 
         e()
         iniciador('Guardando informacion', 'Informacion guardada.')
+        e()
+
+        print(f"Su código de usuario es: {user}")
+        time.sleep(2)
         e()
 
         Separadores("Fin de registro")
@@ -406,10 +410,11 @@ while True:
             if int(opcion_lista_socios) == 1:
                 # transpuesta
                 lista_transpuesta_socios = transponer(lista_socios)[:]
+                lista_nueva = np.array(lista_transpuesta_socios)
 
                 # IMPRESION DE MATRIZ
-                imprimir(lista_transpuesta_socios)
-                # IMPRESION DE MATRIZ ---CAMBIAR A FUNCION
+                imprimir(lista_nueva[:,:4])
+
                 e()
                 volver_menu_socios()
             if int(opcion_lista_socios) == 2:
@@ -604,15 +609,44 @@ while True:
         Separadores("Estado de inversiones")
         e()
 
-        usuario = input("Ingrese su nombre: ")
-        for i in range(len(lista_socios[0])):
-            print(i)
+        ## Crear un While True hasta que encuentre el nombre
+        while True:
+            usuario = input("Ingrese el codigo de usuario: ")
 
+            result = busqueda_lineal(lista_socios[1], usuario)
+            if result[0]:
+                iniciador("Buscando usuario", "Usuario encontrado")
+                e()
+                # Variables del usuario
+                user_moneda = lista_socios[2][result[1]]
+                user_inversion = int(lista_socios[3][result[1]])
+                user_fecha = lista_socios[4][result[1]]
+                user_dinero_actual = estado_de_inversion(user_moneda, user_fecha, user_inversion)
 
-        iniciador("Cargando datos", "")
+                print(f"Bienvenido, {lista_socios[0][result[1]]}")
+                time.sleep(1)
+                e()
+                print(f"Su dinero invertido inicialmente fue: {user_inversion} dólares")
+                time.sleep(1)
+                e()
+                print(f"Su dinero actual es: {round(user_dinero_actual,3)} dólares")
+                time.sleep(1)
+                e()
 
+                if user_dinero_actual > user_inversion:
+                    print("Hubo ganancias")
+                    ganancia = user_dinero_actual - user_inversion
+                    print(f"Se ganó {round(ganancia,3)} dólares")
+                else:
+                    print("Hubo pérdidas")
+                    perdida = user_inversion - user_dinero_actual
+                    print(f"Se perdió {round(perdida,3)} dólares")
+                e()
+                break
+            else:
+                iniciador("Buscando usuario", "Usuario no encontrado")
+                e()
 
-        # print(estado_de_inversion("Bitcoin", "15/06/2022", 10000))
         volver_menu()
 
     # Opción 7 - Salir

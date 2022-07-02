@@ -1,5 +1,6 @@
 import re
 import time
+import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import pandas_datareader.data as web
@@ -283,6 +284,7 @@ def iniciador(texto1,texto2,switch=1):
 
 def estado_de_inversion(moneda, fecha, inversion):
     # Para obtener el tipo de moneda
+
     codigo = ""
     if moneda == "Bitcoin":
         codigo = "BTC-USD"
@@ -313,3 +315,12 @@ def estado_de_inversion(moneda, fecha, inversion):
     dinero_actual = inversion*precio_venta/precio_compra
 
     return dinero_actual
+
+
+def busqueda_lineal(lista, e):
+    position = 0
+    for i in lista:
+        if i == e:
+            return True, position
+        position += 1
+    return False, position
