@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 #
 # print(fecha_compra)
 
-# # Instalar pandas_datareader
+# Instalar pandas_datareader
 # import pip
 # pip.main(['install', 'pandas_datareader'])
 
@@ -22,6 +22,7 @@ BINANCE = BNB-USD
 """
 
 data = web.DataReader("BTC-USD", data_source="yahoo", start="2021-06-01")
+
 
 # Utilizar solo el precio de cierre de la moneda
 data = data.iloc[:, 3]
@@ -98,6 +99,6 @@ def estado_de_inversion(moneda, fecha, inversion):
     return dinero_actual
 
 
-print(estado_de_inversion("Bitcoin","03/06/2022",10000))
+# print(estado_de_inversion("Bitcoin","03/06/2022",10000))
 
 
