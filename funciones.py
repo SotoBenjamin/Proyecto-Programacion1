@@ -1,4 +1,5 @@
 import re
+import csv
 import time
 import numpy as np
 import pandas as pd
@@ -324,3 +325,13 @@ def busqueda_lineal(lista, e):
             return True, position
         position += 1
     return False, position
+
+
+def csv_a_matriz(archivo):
+    matrix = []
+    with open(archivo) as csvfile:
+        reader = csv.reader(csvfile)
+        for lista in reader:  # Cada fila es una lista
+            matrix.append(lista)
+    matrix.pop(len(matrix) - 1)
+    return matrix
