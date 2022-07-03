@@ -2,7 +2,7 @@ import re
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import csv
 
 
 def transponer(matrix):
@@ -273,3 +273,13 @@ def iniciador(texto1,texto2,switch=1):
     if switch == 1:
         print('\t' * 4, texto2)
         time.sleep(0.3)
+
+
+def csv_a_matriz(archivo):
+    matrix = []
+    with open(archivo) as csvfile:
+        reader = csv.reader(csvfile)
+        for lista in reader:  # Cada fila es una lista
+            matrix.append(lista)
+    matrix.pop(len(matrix) - 1)
+    return matrix

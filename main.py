@@ -2,6 +2,7 @@
 from funciones import *
 import pandas as pd
 import matplotlib.pyplot as plt
+import csv
 iniciador('Iniciando programa del servidor', 'Carga con exito.')
 e()
 
@@ -591,7 +592,9 @@ while True:
 
     # Opción 4 - Leer base de datos
     if int(opcion) == 4:
-        print("Leer base de datos")
+        archivo = input("Digite el nombre del archivo:")
+        matrix = csv_a_matriz(archivo)[:]
+        imprimir(matrix)
         volver_menu()
 
     # Opción 5 - Guardar base de datos

@@ -14,7 +14,7 @@
 #    return re.match(expresion_regular, correo) is not None
 
 
-
+"""
 
 #cadena=input("correo:")
 #print(es_correo_valido(cadena))
@@ -58,3 +58,28 @@ while True:
     print(es_fecha_valida(fecha))
     if es_fecha_valida(fecha):
         break
+"""
+
+import csv
+fichero = 'CSV2.csv'
+results = []
+with open(fichero) as csvfile:
+    reader = csv.reader(csvfile)
+    for lista in reader: # Cada fila es una lista
+        results.append(lista)
+results.pop(len(results)-1)
+print(results)
+
+
+def csv_a_matriz(archivo):
+
+    matrix = []
+    with open(archivo) as csvfile:
+        reader = csv.reader(csvfile)
+        for lista in reader:  # Cada fila es una lista
+            matrix.append(lista)
+    matrix.pop(len(matrix) - 1)
+    return matrix
+
+csv_a_matriz('CSV2.csv')
+
