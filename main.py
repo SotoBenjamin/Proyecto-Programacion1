@@ -6,7 +6,6 @@ e()
 # Variables generales
 opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
-ganancia_total_fondo_mutuo = 0
 t = 1
 lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"], ["Fecha"]]
 cryptos_mes = {
@@ -410,7 +409,8 @@ while True:
                         break
             if int(opcion_lista_socios) == 1:
                 # transpuesta
-                lista_transpuesta_socios = transponer(lista_socios)[:]
+                matrix=lista_socios[:]
+                lista_transpuesta_socios = transponer(matrix)[:]
                 lista_nueva = np.array(lista_transpuesta_socios)
 
                 # IMPRESION DE MATRIZ
@@ -599,16 +599,22 @@ while True:
     if int(opcion) == 4:
         Separadores("Leer base de datos")
         e()
-
         archivo = input("Digite el nombre del archivo:")
-        matrix = csv_a_matriz(archivo)[:]
-        imprimir(matrix)
+        lista_socios = csv_a_matriz(archivo)[:]
+        imprimir(lista_socios)
+        lista_socios = transponer(lista_socios)[:]
 
         volver_menu()
 
     # Opción 5 - Guardar base de datos
     if int(opcion) == 5:
-        print("Guardar base de datos")
+        Separadores("Guardar base de datos")
+        e()
+        new_matrix = transponer(lista_socios)[:]
+
+        nombre = input("Escribe el nombre del archivo a guardar: ")
+        matriz_a_csv(new_matrix, nombre)
+
         volver_menu()
 
     # Opción 6 - Estado de inversiones
@@ -659,6 +665,7 @@ while True:
                 iniciador("Calculando la ganancia total del fondo mutuo", "", 0)
                 e()
 
+                ganancia_total_fondo_mutuo = 0
                 for i in range(1, len(lista_socios[3])):
                     user_moneda = lista_socios[2][i]
                     user_inversion = int(lista_socios[3][i])
@@ -689,4 +696,6 @@ while True:
     if int(opcion) == 7:
         iniciador('Cerrando el programa', '')
         Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
+
+
         break
