@@ -8,7 +8,7 @@ opcion_volver_menu = 0
 montos_de_criptomoneda = [0, 0, 0, 0]
 ganancia_total_fondo_mutuo = 0
 t = 1
-lista_socios = [["Nombre", "Jeffrey", "Juan", "Pablo"], ["Codigo", "User1", "User2", "User3"], ["Moneda", "Bitcoin", "Etherium", "Dogecoin"], ["Monto", 10000, 10000, 10000], ["Fecha", "18/06/2022", "18/06/2022", "18/06/2022"]]
+lista_socios = [["Nombre"], ["Codigo"], ["Moneda"], ["Monto"], ["Fecha"]]
 cryptos_mes = {
     "Enero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
     "Febrero": {"Bitcoin": 0, "Etherium": 0, "Dogecoin": 0, "Binance": 0},
@@ -671,7 +671,12 @@ while True:
                         comision = (1 / 100) * ganancia
                         ganancia_total_fondo_mutuo += comision
 
-                print(f"Ganancia del fondo mutuo: {round(ganancia_total_fondo_mutuo,3)}")
+                print(f"Ganancia del fondo mutuo: {round(ganancia_total_fondo_mutuo,3)} dólares")
+                e()
+                break
+            elif usuario == "0":
+                e()
+                iniciador("Cerrando la búsqueda de usuario", '', 2)
                 e()
                 break
             else:
