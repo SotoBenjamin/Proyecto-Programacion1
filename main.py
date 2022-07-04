@@ -696,6 +696,4 @@ while True:
     if int(opcion) == 7:
         iniciador('Cerrando el programa', '')
         Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
-
-
         break
