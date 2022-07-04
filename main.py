@@ -694,6 +694,15 @@ while True:
 
     # Opción 7 - Salir
     if int(opcion) == 7:
+        print("Sugerencia: guarde la base de datos")
+        e()
+
+        new_matrix = transponer(lista_socios)[:]
+
+        nombre = input("Escribe el nombre del archivo a guardar: ")
+        matriz_a_csv(new_matrix, nombre)
+        e()
+
         iniciador('Cerrando el programa', '')
         Separadores("GRACIAS POR INVERTIR EN CRYPTO CORPORATION, VUELVA PRONTO :D")
         break

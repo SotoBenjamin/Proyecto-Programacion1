@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 #
 # print(fecha_compra)
 
-# Instalar pandas_datareader
+# # Instalar pandas_datareader
 # import pip
 # pip.main(['install', 'pandas_datareader'])
 
